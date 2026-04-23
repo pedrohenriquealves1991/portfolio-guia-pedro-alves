@@ -1,49 +1,34 @@
 
 
-# Renomear "Cristina Gestão Condominial" → "Amaro - Gestão Condominial"
+# Atualizar status do build no Lovable — marcar grupos 1 a 9 e 11+ como concluídos
 
-Vou substituir todas as menções a "Cristina Gestão Condominial" pelo nome correto **Amaro - Gestão Condominial** (sistema feito no Lovable para a Dinda do Pedro), e adicionar o link público do sistema (https://amarogestaocondominial.lovable.app/) em pontos relevantes do guia.
+Vou atualizar a coluna "Build no Lovable" do `TimelineCristina.tsx` para refletir o estado real do projeto da Amaro: você já entregou do Grupo 1 até os refinamentos finais (Grupos 12–15), exceto o Grupo 10 (comunicados via Twilio + Resend), que continua pendente.
 
-## Arquivos a alterar
+## Mudanças no array `build` em `src/components/guide/TimelineCristina.tsx`
 
-| Arquivo | Mudança |
-|---|---|
-| `src/content/guide.ts` | Trocar "Cristina Gestão Condominial" por "Amaro - Gestão Condominial" no callout da Seção 0 e em qualquer outra seção que cite o nome. |
-| `src/components/guide/TimelineCristina.tsx` | Atualizar o `<h2>` "Cristina Gestão Condominial" → "Amaro - Gestão Condominial". Acrescentar uma linha curta no parágrafo introdutório dizendo que o sistema foi construído no Lovable, com link clicável para `https://amarogestaocondominial.lovable.app/`. |
-| `src/components/Hero.tsx` | (já está correto após edit anterior — apenas confirmar.) |
+| Item | Antes | Depois |
+|---|---|---|
+| Grupo 1: condomínios (wizard 5 etapas) | `done: false` | `done: true` |
+| Grupo 2: unidades, moradores e autocadastro | `done: false` | `done: true` |
+| Grupo 3: funcionários | `done: false` | `done: true` |
+| Grupo 4: fornecedores e contratos | `done: false` | `done: true` |
+| Grupo 5: manutenções preventivas | `done: false` | `done: true` |
+| Grupo 6: log de ocorrências | `done: false` | `done: true` |
+| Grupo 7: tarefas | `done: false` | `done: true` |
+| Grupo 8: honorários | `done: false` | `done: true` |
+| Grupo 9: documentos | `done: false` | `done: true` |
+| **Grupo 10: comunicados (Twilio + Resend)** | `done: false` | **`done: false`** (continua pendente) |
+| Grupo 11: portal do condômino | `done: false` | `done: true` |
+| Grupos 12–15: refinamentos e relatórios | `done: false` | `done: true` |
+| Configuração de domínio e Resend | `done: false` | `done: false` (depende do Grupo 10) |
+| Testes com a usuária real (a Dinda) | `done: false` | `done: false` (mantém — pode atualizar depois) |
+| Deploy final | `done: false` | `done: false` (mantém — pode atualizar depois) |
 
-O nome do componente `TimelineCristina.tsx` e o id da seção `#timeline-cristina` ficam como estão (são internos, não aparecem para o usuário). Renomear arquivo agora exigiria mexer em imports sem ganho visível.
+## Observações
 
----
+- O Grupo 10 fica visualmente destacado como o único bloqueio no meio da timeline, o que conta uma história clara: "tudo construído, falta integração de mensageria".
+- "Configuração de domínio e Resend" continua pendente porque o Resend faz parte do mesmo bloco do Grupo 10. Se quiser separar (manter só Twilio pendente), me avisa.
+- Os dois últimos itens (testes com a Dinda e deploy final) ficam pendentes — me avisa quando rodarem para eu marcar.
 
-## O que falta no site da Amaro — checklist para você copiar e colar
-
-Abri o site `https://amarogestaocondominial.lovable.app/` e vou comparar o que está publicado contra os 11 grupos previstos no masterplan que você documentou no `TimelineCristina.tsx`. O resultado vem como uma **lista pronta em markdown** dentro deste plano (aqui mesmo, abaixo) — sem precisar de mais nenhum passo. Você copia direto.
-
-A estrutura que vou entregar:
-
-```text
-TELAS QUE FALTAM
-- [ ] Tela X — descrição curta do que ela faz e em que grupo está
-- [ ] Tela Y — ...
-
-VÍDEOS / DEMOS QUE FALTAM
-- [ ] Vídeo do fluxo Z — por quê é útil para divulgação
-- [ ] ...
-
-JÁ ENTREGUE (para referência)
-- [x] ...
-```
-
-Para gerar essa lista com precisão preciso navegar no site publicado (algumas telas só aparecem após login, então onde eu não conseguir entrar marco como "verificar manualmente" em vez de inventar). Vou usar o navegador headless para abrir a home, tirar print, ler o HTML e listar as rotas visíveis. Onde houver tela protegida por login, sinalizo no checklist.
-
-## Detalhes técnicos
-
-1. Buscar todas as ocorrências restantes de "Cristina Gestão" no projeto (`code--search_files`).
-2. Substituir por "Amaro - Gestão Condominial" via `code--line_replace`.
-3. No parágrafo introdutório do `TimelineCristina.tsx`, adicionar:
-   > "Sistema construído no Lovable para a minha Dinda, síndica profissional em Curitiba. **Veja o sistema ao vivo:** [amarogestaocondominial.lovable.app](https://amarogestaocondominial.lovable.app/)"
-4. Abrir o site da Amaro (`browser--navigate_to_url` + `browser--extract`), comparar contra os 19 itens da coluna "Build no Lovable" do `TimelineCristina.tsx`, e devolver a lista de pendências em formato markdown copiável dentro da resposta final (não como arquivo).
-
-Nada precisa ir para `mem://` — é uma correção pontual e uma análise única.
+Nada mais muda: nem o título da seção, nem os erros documentados, nem o link do site ao vivo.
 
