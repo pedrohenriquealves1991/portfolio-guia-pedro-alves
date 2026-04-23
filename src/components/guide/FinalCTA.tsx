@@ -1,12 +1,16 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Share2 } from "lucide-react";
+import { Download, Mail, Share2 } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import DownloadGateDialog from "@/components/guide/DownloadGateDialog";
 
 const FinalCTA = () => {
   const { lang } = useLanguage();
   const t = translations.finalCTA;
+  const dl = translations.downloadGate;
+  const [dlOpen, setDlOpen] = useState(false);
 
   const handleShare = async () => {
     const url = window.location.origin + "/";

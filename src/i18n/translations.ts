@@ -408,4 +408,49 @@ export const translations = {
 
   // ============ MISC ============
   impactLabel: { pt: "Impacto:", en: "Impact:" },
+
+  // ============ DOWNLOAD GATE ============
+  downloadGate: {
+    heroButton: { pt: "Baixar guia em .md", en: "Download guide (.md)" },
+    ctaTitle: {
+      pt: "Use o guia inteiro como referência no seu projeto",
+      en: "Use the whole guide as a reference in your project",
+    },
+    ctaBody: {
+      pt: "Baixe o guia em Markdown e cole dentro do Claude, Lovable ou qualquer ferramenta de IA. A IA vai ler tudo e te ajudar com base nesse conteúdo.",
+      en: "Download the guide in Markdown and paste it into Claude, Lovable or any AI tool. The AI will read it and help you based on this content.",
+    },
+    ctaButton: {
+      pt: "Baixar o guia completo (.md)",
+      en: "Download the full guide (.md)",
+    },
+    title: { pt: "Antes de baixar...", en: "Before downloading..." },
+    subtitle: {
+      pt: "Preciso de duas coisas só. Sem spam, prometo.",
+      en: "Just two things. No spam, promise.",
+    },
+    name: { pt: "Nome", en: "Name" },
+    namePlaceholder: { pt: "Como te chamo?", en: "What's your name?" },
+    nameError: { pt: "Diz aí teu nome", en: "Tell me your name" },
+    email: { pt: "Email", en: "Email" },
+    emailError: { pt: "Email inválido", en: "Invalid email" },
+    consent: {
+      pt: "Concordo em receber atualizações do guia, eventualmente. Posso descadastrar quando quiser.",
+      en: "I agree to occasionally receive updates about the guide. I can unsubscribe anytime.",
+    },
+    consentError: {
+      pt: "Precisa marcar para continuar",
+      en: "You need to check this to continue",
+    },
+    submit: { pt: "Baixar agora", en: "Download now" },
+    submitting: { pt: "Preparando...", en: "Preparing..." },
+    success: {
+      pt: "Pronto! O download começou.",
+      en: "Done! The download has started.",
+    },
+    errorGeneric: {
+      pt: "Algo deu errado. Tenta de novo?",
+      en: "Something went wrong. Try again?",
+    },
+  },
 } as const;
