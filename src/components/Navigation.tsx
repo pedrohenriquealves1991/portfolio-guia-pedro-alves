@@ -47,7 +47,7 @@ const Navigation = () => {
             ))}
           </div>
           <a
-            href="mailto:pedro@example.com"
+            href="mailto:pedro@regulamentei.com.br"
             className="hidden sm:inline font-display font-semibold text-xs md:text-sm tracking-wide text-foreground hover:opacity-70 transition-opacity"
           >
             EMAIL
