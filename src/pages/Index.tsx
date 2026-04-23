@@ -8,6 +8,7 @@ import PromptGallery from "@/components/guide/PromptGallery";
 import PromptGenerator from "@/components/guide/PromptGenerator";
 import TimelineCristina from "@/components/guide/TimelineCristina";
 import FinalCTA from "@/components/guide/FinalCTA";
+import PartHeader from "@/components/guide/PartHeader";
 import { SECTIONS } from "@/content/guide";
 import { useJourney, shouldShow } from "@/content/journey-store";
 
@@ -15,8 +16,21 @@ const Index = () => {
   const [filter] = useJourney();
 
   const intro = SECTIONS.find((s) => s.slug === "intro");
-  const before = SECTIONS.filter((s) => s.number !== null && s.number <= 2);
-  const after = SECTIONS.filter((s) => s.number !== null && s.number > 2);
+  const partI = SECTIONS.filter((s) => s.number !== null && s.number >= 1 && s.number <= 8);
+  const partII = SECTIONS.filter((s) => s.number !== null && s.number >= 9 && s.number <= 14);
+  const partIII = SECTIONS.filter((s) => s.number !== null && s.number >= 15);
+
+  const renderSection = (s: typeof SECTIONS[number], index: number) => {
+    const out = [<GuideSection key={s.slug} section={s} index={index} />];
+    if (s.slug === "prompts-prontos") {
+      out.push(<PromptGallery key="gallery" />);
+      out.push(<PromptGenerator key="generator" />);
+    }
+    if (s.slug === "caso-cristina") {
+      out.push(<TimelineCristina key="timeline" />);
+    }
+    return out;
+  };
 
   return (
     <div className="min-h-screen">
@@ -27,30 +41,25 @@ const Index = () => {
         <Hero />
 
         {intro && <GuideSection section={intro} index={0} />}
-        {before
-          .filter((s) => shouldShow(s.path, filter))
-          .map((s, i) => (
-            <GuideSection key={s.slug} section={s} index={i + 1} />
-          ))}
 
+        {/* PARTE I — TEORIA */}
+        <PartHeader part="I" />
+        {partI
+          .filter((s) => shouldShow(s.path, filter))
+          .map((s, i) => renderSection(s, i + 1))}
+
+        {/* PARTE II — PRÁTICA */}
+        <PartHeader part="II" />
         <JourneyPicker />
-
-        {after
+        {partII
           .filter((s) => shouldShow(s.path, filter))
-          .map((s, i) => {
-            const out = [
-              <GuideSection key={s.slug} section={s} index={i + 3} />,
-            ];
-            // Insert special blocks at the right anchor sections
-            if (s.slug === "prompts-prontos") {
-              out.push(<PromptGallery key="gallery" />);
-              out.push(<PromptGenerator key="generator" />);
-            }
-            if (s.slug === "caso-cristina") {
-              out.push(<TimelineCristina key="timeline" />);
-            }
-            return out;
-          })}
+          .map((s, i) => renderSection(s, i + 9))}
+
+        {/* PARTE III — DEPOIS DO BUILD */}
+        <PartHeader part="III" />
+        {partIII
+          .filter((s) => shouldShow(s.path, filter))
+          .map((s, i) => renderSection(s, i + 15))}
 
         <FinalCTA />
       </main>

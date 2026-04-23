@@ -409,6 +409,34 @@ export const translations = {
   // ============ MISC ============
   impactLabel: { pt: "Impacto:", en: "Impact:" },
 
+  // ============ PARTS ============
+  parts: {
+    I: {
+      label: { pt: "Parte I", en: "Part I" },
+      title: { pt: "Teoria", en: "Theory" },
+      desc: {
+        pt: "Entenda o terreno antes de abrir qualquer ferramenta: o que é vibe coding, ferramentas, banco de dados, segurança, SEO e como dar contexto à IA.",
+        en: "Understand the terrain before opening any tool: what vibe coding is, tools, databases, security, SEO, and how to give context to AI.",
+      },
+    },
+    II: {
+      label: { pt: "Parte II", en: "Part II" },
+      title: { pt: "Prática", en: "Practice" },
+      desc: {
+        pt: "Mão na massa, na ordem real de execução: do desenho dos fluxos até os prompts prontos para construir o sistema.",
+        en: "Hands-on, in the real order of execution: from designing flows to ready-made prompts to build the system.",
+      },
+    },
+    III: {
+      label: { pt: "Parte III", en: "Part III" },
+      title: { pt: "Depois do build", en: "After the build" },
+      desc: {
+        pt: "O que fazer quando o sistema já existe: changelog, debug, segurança em produção, GitHub e checklist final antes de publicar.",
+        en: "What to do once the system exists: changelog, debug, production security, GitHub, and final checklist before publishing.",
+      },
+    },
+  },
+
   // ============ DOWNLOAD GATE ============
   downloadGate: {
     heroButton: { pt: "Baixar guia em .md", en: "Download guide (.md)" },
