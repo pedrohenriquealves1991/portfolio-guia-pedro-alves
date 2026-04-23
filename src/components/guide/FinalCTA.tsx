@@ -1,20 +1,25 @@
 import { motion } from "framer-motion";
 import { Mail, Share2 } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 const FinalCTA = () => {
+  const { lang } = useLanguage();
+  const t = translations.finalCTA;
+
   const handleShare = async () => {
     const url = window.location.origin + "/";
     try {
       if (navigator.share) {
         await navigator.share({
-          title: "Um Guia Sincero de Vibe Coding",
-          text: "Guia pessoal sobre usar IA para construir sistemas reais.",
+          title: t.shareTitle[lang],
+          text: t.shareText[lang],
           url,
         });
       } else {
         await navigator.clipboard.writeText(url);
-        toast.success("Link copiado para a área de transferência!");
+        toast.success(t.copied[lang]);
       }
     } catch {
       // user cancelled
@@ -31,28 +36,28 @@ const FinalCTA = () => {
         className="max-w-3xl mx-auto bg-primary border-2 border-foreground rounded-sm p-8 md:p-12 shadow-[8px_8px_0_0_hsl(var(--foreground))] text-center -rotate-1"
       >
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/70 mb-3">
-          Este guia é vivo
+          {t.eyebrow[lang]}
         </p>
         <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-4 leading-tight">
-          Vai melhorar com o tempo.
+          {t.title[lang]}
         </h2>
         <p className="text-foreground/85 text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
-          Cada etapa concluída no SíndicaPro vira conteúdo novo aqui.
-          Manda para um amigo que está começando — ou abre o e-mail se tem
-          uma sugestão.
+          {t.body[lang]}
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={handleShare}
             className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-foreground text-background font-bold uppercase text-sm tracking-wider rounded-sm hover:bg-foreground/85 transition-colors"
           >
-            <Share2 className="w-4 h-4" /> Enviar para um amigo
+            <Share2 className="w-4 h-4" /> {t.share[lang]}
           </button>
           <a
-            href="mailto:pedro@regulamentei.com.br?subject=Sugestão para o Guia de Vibe Coding"
+            href={`mailto:pedro@regulamentei.com.br?subject=${encodeURIComponent(
+              t.emailSubject[lang]
+            )}`}
             className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-background/60 border-2 border-foreground text-foreground font-bold uppercase text-sm tracking-wider rounded-sm hover:bg-background/80 transition-colors"
           >
-            <Mail className="w-4 h-4" /> Mandar sugestão
+            <Mail className="w-4 h-4" /> {t.suggest[lang]}
           </a>
         </div>
       </motion.div>
