@@ -1,129 +1,70 @@
 
 
-# Capturar nome + email antes do download do .md
+# Reorganizar fluxo do guia em 3 partes (Teoria → Prática → Pós-build)
 
-Antes de gerar o arquivo Markdown, mostro um modal pedindo **nome** e **email**. Os dados são salvos no banco (Lovable Cloud) e você é notificado por email a cada download. Sem pagamento, sem login — só o gate.
+A reorganização ficou pendente do plano anterior (foi sobrescrita pelo escopo do download .md). Vou aplicá-la agora — só conteúdo e ordem, **sem mexer em design**.
 
-## Como você vai consultar os dados
-
-Duas formas, em paralelo:
-
-1. **Email automático para você** — toda vez que alguém baixar, você recebe um email em `pedro@regulamentei.com.br` com nome, email e timestamp do download. É o canal "tempo real".
-2. **Página `/admin/leads`** — rota protegida por senha simples (você digita uma senha que fica num secret). Lista todos os leads em tabela, com busca, filtro por data e botão "Exportar CSV". É o canal "consulta histórica".
-
-## Arquitetura
+## Nova ordem das 22 seções
 
 ```text
-[Hero / FinalCTA]
-    └─ click "Baixar guia em .md"
-        └─ <DownloadGateDialog/>  (nome + email + LGPD checkbox)
-            └─ supabase.functions.invoke('register-guide-download')
-                ├─ INSERT em guide_downloads (nome, email, ip, ua, lang)
-                ├─ envia email pra você via send-transactional-email
-                └─ retorna { ok: true }
-            └─ exportGuideToMarkdown() → trigger download do .md no browser
+PARTE I — TEORIA (entender antes de abrir qualquer ferramenta)
+  1. O que é vibe coding                         (atual 1)
+  2. Antes de abrir qualquer ferramenta          (atual 2)
+  3. As ferramentas                              (atual 3)
+  4. Os conectores                               (atual 5)
+  5. Preciso de domínio?                         (atual 4)
+  6. Banco de dados e segurança                  (atual 12 → sobe)
+  7. SEO e rastreamento                          (atual 14 → sobe)
+  8. PRDs e context engineering                  (fusão de atuais 6 + 8)
+
+PARTE II — PRÁTICA (na ordem de execução)
+  9.  Desenhando fluxos antes de construir       (atual 9)
+  10. Identidade visual com Claude Design        (atual 10)
+  11. Os documentos: estrutura e ordem           (atual 7 → desce)
+  12. Configurando o Lovable com documentos      (atual 11)
+  13. Domínio, DNS e e-mail transacional         (atual 13)
+  14. Prompts prontos para copiar e colar        (atual 17 → âncora do PromptGallery)
+
+PARTE III — DEPOIS DO BUILD
+  15. CHANGELOG: documentando o que foi feito    (atual 15)
+  16. Segurança e performance nativas            (atual 16)
+  17. Debug: protocolo quando travar             (atual 18)
+  18. GitHub e Claude Code                       (atual 19)
+  19. Caso real: Amaro - Gestão Condominial      (atual 20 → âncora do TimelineCristina)
+  20. Antes de publicar: checklist de produção   (atual 21)
+  21. FAQ                                        (atual 22)
 ```
 
-## Mudanças, arquivo por arquivo
+### Costuras necessárias
 
-### Banco (migration)
+- **Fundir Seções 6 ("Quando planejar") + 8 ("Context engineering") na nova Seção 8** — hoje a 6 termina anunciando "context engineering" e a 8 só explica o conceito 2 seções depois, com a 7 perdida no meio. A nova Seção 8 vira **"PRDs e context engineering"**: começa com o tema "quando planejar", define PRD, define context engineering e explica o Knowledge do Lovable. Mantém os prompts `knowledge` e `p2` e todos os parágrafos atuais — só une e remove a frase de gancho duplicada.
+- **Subir Seção 12 (banco/segurança) e 14 (SEO)** para a Parte I — são teoria que precede o build.
+- **Renumerar `number` de 1 a 21**. **Slugs permanecem iguais** (TOC, links e âncoras seguem funcionando).
+- `PromptGallery` + `PromptGenerator` continuam ancorados em `prompts-prontos` (agora seção 14, fim da Parte II — onde o usuário está pronto para executar).
+- `TimelineCristina` continua ancorado em `caso-cristina` (agora seção 19).
+- `JourneyPicker` migra de "depois da seção 2" para "início da Parte II" (faz mais sentido escolher caminho quando vai pôr a mão na massa).
 
-Tabela nova `guide_downloads`:
-- `id` uuid pk
-- `name` text not null (1-100 chars)
-- `email` text not null (validado)
-- `language` text ('pt' | 'en')
-- `user_agent` text, `ip_hash` text (sha256, sem IP cru — LGPD)
-- `created_at` timestamptz default now()
-- RLS habilitado: **sem policy de SELECT pública** (só service role lê). INSERT é feito pela edge function com service role, então também não precisa de policy de INSERT pública.
-- Índice em `created_at desc` e `email`.
+### Separadores visuais entre as partes
 
-Tabela `admin_settings` (1 linha) com hash da senha de admin — ou simplesmente uso secret `ADMIN_PASSWORD` na edge function (mais simples, sem tabela). **Vou pelo secret.**
-
-### Edge Functions (2 novas)
-
-**`supabase/functions/register-guide-download/index.ts`**
-- Valida body com Zod: `name` (1-100), `email` (formato), `language` ('pt'|'en')
-- Hash do IP (SHA-256) para LGPD compliance
-- INSERT em `guide_downloads`
-- Chama `send-transactional-email` para te notificar (template novo `guide-download-notification`)
-- Retorna `{ ok: true }` — nunca falha o download por causa do email
-- CORS habilitado, sem JWT
-
-**`supabase/functions/list-guide-downloads/index.ts`**
-- Recebe header `x-admin-password`
-- Valida contra secret `ADMIN_PASSWORD` (timing-safe compare)
-- Aceita query params: `from`, `to`, `search` (busca em nome/email), `limit`, `offset`
-- Retorna `{ rows: [...], total: N }`
-- Também aceita `?format=csv` que retorna CSV pronto pra download
-
-### Email transacional (infraestrutura)
-
-Como você ainda **não tem email infrastructure configurada**, o fluxo correto é:
-1. Você precisa configurar um domínio de envio de email (Lovable Cloud → Emails). Posso te mostrar o setup quando aprovar este plano.
-2. Depois disso, eu crio o template `guide-download-notification` em `_shared/transactional-email-templates/` — assunto: "Novo download do guia: {nome}", corpo simples com nome, email e timestamp.
-3. Edge function `register-guide-download` chama `send-transactional-email` com esse template + `recipientEmail: 'pedro@regulamentei.com.br'`.
-
-**Se você não quiser configurar domínio de email agora**, alternativa: pulo o email e você consulta tudo só pela página `/admin/leads`. Decidimos depois — o plano atual assume que vamos configurar.
-
-### Frontend
-
-**`src/components/guide/DownloadGateDialog.tsx`** (novo)
-- Usa `Dialog` do shadcn
-- Form com `react-hook-form` + Zod: nome (obrigatório), email (obrigatório, validado), checkbox LGPD ("Concordo em receber atualizações sobre o guia")
-- Estilo: card amarelo com borda preta + sombra (mesmo visual do `FinalCTA`)
-- Submit: chama edge function → em sucesso, dispara o download e fecha
-- i18n PT/EN
-
-**`src/lib/exportGuide.ts`** (novo) — Já estava no plano anterior. Função pura `exportGuideToMarkdown()` que monta o `.md` a partir de `SECTIONS`, `PROMPTS`, `TOOLS` e dispara download via `Blob` + `<a download>`.
-
-**`src/components/Hero.tsx`** e **`src/components/guide/FinalCTA.tsx`** — Trocar o botão de download direto por um que abre o `DownloadGateDialog`. O download real só acontece após o submit do form.
-
-**`src/pages/AdminLeads.tsx`** (novo) — Rota `/admin/leads`:
-- Tela de senha (input password + botão "Entrar")
-- Senha fica em `sessionStorage` durante a sessão
-- Ao logar: tabela com nome, email, idioma, data; busca por texto; filtros de data; botão "Exportar CSV"
-- Paginação (50 por página)
-- Visual minimalista, no mesmo design system do site
-
-**`src/App.tsx`** — Adicionar rota `/admin/leads`.
-
-### i18n
-
-Adicionar em `src/i18n/translations.ts`:
-- `downloadGate.title` — "Antes de baixar..." / "Before downloading..."
-- `downloadGate.subtitle` — "Preciso de duas coisas só. Sem spam." / "Just two things. No spam."
-- `downloadGate.name`, `downloadGate.email`, `downloadGate.consent`, `downloadGate.submit`
-- `downloadGate.success` — "Pronto! O download começou." / "Done! Download started."
+Componente novo `src/components/guide/PartHeader.tsx` — bloco grande com etiqueta "PARTE I/II/III", título ("Teoria" / "Prática" / "Depois do build") e uma linha de descrição. Mesmo design do guia (coral/amarelo/preto, Space Grotesk, borda preta + sombra). Renderizado 3x no `Index.tsx` antes do primeiro item de cada parte.
 
 ## Arquivos modificados / criados
 
-**Criados:**
-- `supabase/functions/register-guide-download/index.ts`
-- `supabase/functions/list-guide-downloads/index.ts`
-- `supabase/functions/_shared/transactional-email-templates/guide-download-notification.tsx`
-- `src/components/guide/DownloadGateDialog.tsx`
-- `src/lib/exportGuide.ts`
-- `src/pages/AdminLeads.tsx`
-- migration: `guide_downloads` table + RLS
-
 **Modificados:**
-- `src/components/Hero.tsx` — botão abre dialog
-- `src/components/guide/FinalCTA.tsx` — botão abre dialog
-- `src/App.tsx` — rota `/admin/leads`
-- `src/i18n/translations.ts` — chaves novas
-- `supabase/functions/_shared/transactional-email-templates/registry.ts` — registrar template novo
-- `supabase/config.toml` — `verify_jwt = false` para as 2 edge functions
+- `src/content/guide.ts` — reordenar `SECTIONS`, renumerar campo `number`, fundir seções 6+8 em uma só com slug `context-engineering` (preservando conteúdo dos 2 atuais).
+- `src/pages/Index.tsx` — agrupar seções por parte, inserir 3 `<PartHeader>`, mover `JourneyPicker` para o início da Parte II.
+- `src/i18n/translations.ts` — chaves novas: `parts.I.label/title/desc`, `parts.II.*`, `parts.III.*` (PT/EN).
 
-## Pré-requisitos que você precisa decidir
-
-1. **Configurar domínio de email** para receber as notificações? (recomendo sim — você já tem `pedro@regulamentei.com.br`, posso configurar `notify.regulamentei.com.br` como subdomínio de envio)
-2. **Senha de admin** — vou criar um secret `ADMIN_PASSWORD`. Você define o valor quando eu pedir.
+**Criados:**
+- `src/components/guide/PartHeader.tsx`
 
 ## O que NÃO muda
 
-- Design, fontes, paleta — tudo igual.
-- Reorganização das seções (plano anterior aprovado) segue valendo, este plano roda em cima daquele.
-- Restante do guia (conteúdo, prompts, tools) intacto.
-- Rota `/portfolio` e Footer sem mudança.
+- Design, cores, fontes, componentes, layout — intactos.
+- Conteúdo de cada seção — só **ordem** muda. A única edição textual é a fusão das seções 6+8 (sem perder texto, só removendo a frase-gancho duplicada).
+- Slugs — TOC, âncoras e links externos continuam válidos.
+- Filtros de jornada (comum/backoffice/produto) por seção — mantidos.
+- Hero, Footer, Navigation, rota `/portfolio`, `/admin/leads` — sem mudança.
+- Download .md, `DownloadGateDialog`, edge functions, `exportGuide.ts` — sem mudança (o export passa a refletir a nova ordem automaticamente, já que lê de `SECTIONS`).
+- i18n EN do conteúdo do guia — segue só PT (igual hoje).
 
