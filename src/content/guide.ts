@@ -14,7 +14,7 @@ export const SECTIONS: GuideSectionData[] = [
       },
       {
         kind: "paragraph",
-        text: "Este guia é pessoal, direto, sem motivacional. Quem fala é alguém que errou, aprendeu e documenta o que funciona. O caso real que atravessa o guia inteiro é o sistema **Cristina Gestão Condominial** — construído para a minha Dinda, síndica profissional em Curitiba.",
+        text: "Este guia é pessoal, direto, sem motivacional. Quem fala é alguém que errou, aprendeu e documenta o que funciona. O caso real que atravessa o guia inteiro é o sistema **Amaro - Gestão Condominial** — construído no Lovable para a minha Dinda, síndica profissional em Curitiba. Veja ao vivo: https://amarogestaocondominial.lovable.app/",
       },
       {
         kind: "paragraph",
