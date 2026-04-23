@@ -49,7 +49,7 @@ const FinalCTA = () => {
             <Share2 className="w-4 h-4" /> Enviar para um amigo
           </button>
           <a
-            href="mailto:pedro@example.com?subject=Sugestão para o Guia de Vibe Coding"
+            href="mailto:pedro@regulamentei.com.br?subject=Sugestão para o Guia de Vibe Coding"
             className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-background/60 border-2 border-foreground text-foreground font-bold uppercase text-sm tracking-wider rounded-sm hover:bg-background/80 transition-colors"
           >
             <Mail className="w-4 h-4" /> Mandar sugestão
