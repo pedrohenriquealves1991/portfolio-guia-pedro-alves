@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Warm coral/peach gradient palette */
+    --background: 15 85% 85%;
+    --background-gradient-start: 350 80% 75%;
+    --background-gradient-end: 35 90% 80%;
+    --foreground: 0 0% 10%;
+
+    --card: 45 100% 60%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Bold yellow accent */
+    --primary: 50 100% 50%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 350 75% 70%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 20 60% 80%;
+    --muted-foreground: 0 0% 30%;
+
+    --accent: 50 100% 55%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 90%;
+    --ring: 50 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom portfolio tokens */
+    --nav-bg: 50 100% 50%;
+    --nav-border: 0 0% 10%;
+    --text-primary: 0 0% 10%;
+    --text-secondary: 0 0% 30%;
+    --link-color: 220 80% 50%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 50 100% 50%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 50 100% 50%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 50 100% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(
+      180deg,
+      hsl(350 80% 75%) 0%,
+      hsl(15 85% 82%) 30%,
+      hsl(30 90% 80%) 60%,
+      hsl(35 85% 78%) 100%
+    );
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .nav-bar {
+    @apply bg-primary border-b-2 border-foreground;
+  }
+
+  .section-title {
+    @apply font-bold text-foreground uppercase tracking-wide;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  .body-text {
+    @apply text-foreground/80 leading-relaxed;
+  }
+
+  .image-card {
+    @apply rounded-sm shadow-lg overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-300;
+  }
+
+  .image-card-alt {
+    @apply rounded-sm shadow-lg overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-300;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
