@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
+import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import DownloadGateDialog from "@/components/guide/DownloadGateDialog";
 
 const Hero = () => {
   const { lang } = useLanguage();
   const t = translations.guideHero;
+  const [dlOpen, setDlOpen] = useState(false);
 
   return (
     <section className="pt-32 pb-12 px-6 md:px-12">
@@ -38,15 +41,25 @@ const Hero = () => {
             dangerouslySetInnerHTML={{ __html: t.bodyB[lang] }}
           />
 
-          <a
-            href="#bifurcacao"
-            className="inline-flex items-center gap-2 px-5 py-3 bg-foreground text-background font-display font-bold uppercase text-sm tracking-wider rounded-sm hover:bg-foreground/85 transition-colors"
-          >
-            {t.cta[lang]}
-            <ArrowDown className="w-4 h-4" />
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="#bifurcacao"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-foreground text-background font-display font-bold uppercase text-sm tracking-wider rounded-sm hover:bg-foreground/85 transition-colors"
+            >
+              {t.cta[lang]}
+              <ArrowDown className="w-4 h-4" />
+            </a>
+            <button
+              onClick={() => setDlOpen(true)}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-background border-2 border-foreground text-foreground font-display font-bold uppercase text-sm tracking-wider rounded-sm hover:bg-muted transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              {translations.downloadGate.heroButton[lang]}
+            </button>
+          </div>
         </motion.div>
       </div>
+      <DownloadGateDialog open={dlOpen} onOpenChange={setDlOpen} />
     </section>
   );
 };
