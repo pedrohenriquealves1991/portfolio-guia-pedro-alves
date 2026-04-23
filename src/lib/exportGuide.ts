@@ -67,6 +67,13 @@ function blockToMarkdown(block: Block): string {
           .join("\n") + "\n"
       );
     }
+    case "faq": {
+      return (
+        block.items
+          .map((it) => `**${it.q}**\n\n${it.a}\n`)
+          .join("\n") + "\n"
+      );
+    }
   }
 }
 
