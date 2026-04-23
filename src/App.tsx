@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import Portfolio from "./pages/Portfolio";
+import AdminLeads from "./pages/AdminLeads";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 
@@ -30,6 +31,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/admin/leads" element={<AdminLeads />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
