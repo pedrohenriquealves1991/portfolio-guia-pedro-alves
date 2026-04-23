@@ -22,6 +22,10 @@ export const SECTIONS: GuideSectionData[] = [
       },
     ],
   },
+
+  // ============================================================
+  // PARTE I — TEORIA
+  // ============================================================
   {
     number: 1,
     slug: "o-que-e-vibe-coding",
@@ -30,7 +34,7 @@ export const SECTIONS: GuideSectionData[] = [
     blocks: [
       {
         kind: "paragraph",
-        text: "Vibe coding é um novo nível de abstração no uso de programação. Antes você precisava de um desenvolvedor para criar uma simples automação de um processo. Agora é possível usar IA para criar sistemas integrados — com banco de dados, múltiplos usuários e lógica automática — sem escrever código. Sabe aquele cadastro de cliente ou aquela planilha que todos os setores acessavam e cada um preenchia um dado para depois gerar um relatório ou ser transcrito para um sistema, agora você descreve esse processo e o que quer e a IA escreve o código. Você dirige por meio de linguagem humana.",
+        text: "Vibe coding é um novo nível de abstração no uso de programação. Antes você precisava de um desenvolvedor para criar uma simples automação de um processo. Agora é possível usar IA para criar sistemas integrados — com banco de dados, múltiplos usuários e lógica automática — sem escrever código. Sabe aquele cadastro de cliente ou aquela planilha que todos os setores acessavam e cada um preenchia um dado para depois gerar um relatório ou ser transcrito para um sistema, agora você descreve esse processo e o que quer e a IA escreve o código. Você dirige por meio de linguagem humana.",
       },
       {
         kind: "paragraph",
@@ -155,6 +159,29 @@ export const SECTIONS: GuideSectionData[] = [
   },
   {
     number: 4,
+    slug: "conectores",
+    title: "Os conectores (integrações)",
+    path: "produto",
+    pathNote: "Produto principalmente. Backoffice pode precisar de alguns.",
+    blocks: [
+      {
+        kind: "paragraph",
+        text: "Conectores são parcerias entre empresas para facilitar a vida de quem constrói. Você não precisa saber como funcionam por dentro — só o que cada um faz e quando usar.",
+      },
+      {
+        kind: "tools",
+        ids: ["lovable-cloud", "resend", "twilio", "firecrawl", "lovable-ai", "lovable-payments"],
+      },
+      {
+        kind: "callout",
+        variant: "warn",
+        title: "Login com Google: cuidado",
+        text: "Sem os ajustes corretos, a tela de login mostra o endereço técnico do banco de dados em vez do nome do seu projeto — parece vírus. Já perdi turnos resolvendo isso. Documente o passo a passo. Recomendo deixar para quando o projeto já estiver estável.",
+      },
+    ],
+  },
+  {
+    number: 5,
     slug: "preciso-de-dominio",
     title: "Preciso de domínio?",
     path: "produto",
@@ -189,38 +216,73 @@ export const SECTIONS: GuideSectionData[] = [
     ],
   },
   {
-    number: 5,
-    slug: "conectores",
-    title: "Os conectores (integrações)",
-    path: "produto",
-    pathNote: "Produto principalmente. Backoffice pode precisar de alguns.",
+    number: 6,
+    slug: "banco-seguranca",
+    title: "Banco de dados e segurança",
+    path: "comum",
     blocks: [
       {
         kind: "paragraph",
-        text: "Conectores são parcerias entre empresas para facilitar a vida de quem constrói. Você não precisa saber como funcionam por dentro — só o que cada um faz e quando usar.",
+        text: "**O que é um banco de dados:** onde as informações ficam guardadas permanentemente. Pense como uma planilha inteligente onde cada linha tem um ID único e as planilhas se conectam.",
       },
       {
-        kind: "tools",
-        ids: ["lovable-cloud", "resend", "twilio", "firecrawl", "lovable-ai", "lovable-payments"],
+        kind: "paragraph",
+        text: "**O que é RLS (Row Level Security):** define quem pode ver o quê. Sem isso, qualquer usuário logado vê os dados de todos os outros. O Lovable configura quando você descreve os perfis de acesso nos documentos.",
       },
+      { kind: "subheading", text: "Regras que valem para qualquer projeto" },
       {
-        kind: "callout",
-        variant: "warn",
-        title: "Login com Google: cuidado",
-        text: "Sem os ajustes corretos, a tela de login mostra o endereço técnico do banco de dados em vez do nome do seu projeto — parece vírus. Já perdi turnos resolvendo isso. Documente o passo a passo. Recomendo deixar para quando o projeto já estiver estável.",
+        kind: "list",
+        items: [
+          "Nunca deletar registros fisicamente — usar soft delete (campo `deleted_at`)",
+          "Toda tabela tem id, created_at, updated_at, deleted_at",
+          "Chaves secretas apenas em Edge Functions, nunca no frontend",
+          "Dados sensíveis nunca em localStorage ou URL",
+        ],
+      },
+      { kind: "subheading", text: "LGPD na prática" },
+      {
+        kind: "list",
+        items: [
+          "Colete o mínimo: nome, e-mail, telefone",
+          "Evite: CPF, RG, data de nascimento, dados bancários — exceto obrigação legal",
+          "Tenha: tela de consentimento com linguagem simples, checkbox não pré-marcado",
+          "Ofereça: botão de exclusão de dados (anonimização, não deleção física)",
+        ],
       },
     ],
   },
   {
-    number: 6,
-    slug: "quando-planejar",
-    title: "Quando planejar e quando não planejar",
+    number: 7,
+    slug: "seo-rastreamento",
+    title: "SEO e rastreamento",
+    path: "produto",
+    blocks: [
+      {
+        kind: "paragraph",
+        text: "**SEO:** conjunto de práticas que influencia em qual posição seu site aparece quando alguém pesquisa no Google. O Lovable já gera estrutura básica.",
+      },
+      { kind: "subheading", text: "Ferramentas de rastreamento" },
+      {
+        kind: "list",
+        items: [
+          "**Lovable Analytics** — nativo, simples, sem configuração. Começa aqui.",
+          "**LogRocket** — mostra exatamente como cada usuário navegou. Sessões com 1 segundo são robôs — ignore.",
+          "**Google Analytics** — mais completo, mais complexo. Deixe para quando o projeto estiver maduro.",
+        ],
+      },
+    ],
+  },
+  {
+    number: 8,
+    slug: "context-engineering",
+    title: "PRDs e context engineering",
     path: "comum",
     blocks: [
       {
         kind: "paragraph",
         text: "Esta é a seção que a maioria dos tutoriais ignora — e por isso os projetos viram bagunça depois de 3 semanas.",
       },
+      { kind: "subheading", text: "Quando planejar e quando não planejar" },
       {
         kind: "paragraph",
         text: "Para projetos simples (landing page, formulário, página de apresentação): vai direto no Lovable. Não precisa de documento nenhum.",
@@ -235,80 +297,16 @@ export const SECTIONS: GuideSectionData[] = [
         title: "O problema real que os documentos resolvem",
         text: "A IA tem memória limitada. Pense assim: você está contratando um funcionário novo toda vez que abre o chat. Ele é competente, mas não sabe nada da sua empresa ainda. Os documentos são o manual de integração que você dá para ele antes de começar.",
       },
+      { kind: "subheading", text: "O que é um PRD" },
       {
         kind: "paragraph",
-        text: "O nome técnico para isso é **context engineering** — você está engenheirando o contexto que o modelo vai consumir antes de escrever uma linha de código.",
+        text: "**PRD (Product Requirements Document)** descreve o que o sistema deve fazer — não como o código deve ser escrito. É o ponto de partida para qualquer projeto com banco de dados.",
       },
-    ],
-  },
-  {
-    number: 7,
-    slug: "documentos",
-    title: "Os documentos: estrutura e ordem",
-    path: "comum",
-    pathNote: "Para projetos com banco de dados",
-    blocks: [
+      { kind: "subheading", text: "Context engineering: o conceito que muda tudo" },
       {
         kind: "paragraph",
-        text: "**O que é Markdown:** é um formato de texto simples que vira documento formatado. Pense no Word ou Google Docs: você clica em \"Negrito\" e o texto fica negrito. No Markdown você digita `**negrito**` e ele aparece negrito quando renderizado. `# Título` vira título grande, `- item` vira lista. A diferença é que o arquivo é leve, abre em qualquer editor e — o mais importante — **a IA lê melhor Markdown do que qualquer outro formato**. Os arquivos terminam em `.md`.",
+        text: "O nome técnico para esse trabalho de preparar contexto antes da IA escrever uma linha sequer é **context engineering** — você está engenheirando o contexto que o modelo vai consumir.",
       },
-      {
-        kind: "paragraph",
-        text: "**O que é um PRD:** Product Requirements Document. Descreve o que o sistema deve fazer — não como o código deve ser escrito.",
-      },
-      { kind: "subheading", text: "A estrutura completa que uso" },
-      {
-        kind: "code",
-        lang: "text",
-        text: `docs/
-  RULES.md               ← 0. como o código deve ser escrito
-  01-masterplan.md       ← 1. visão geral, entidades, módulos, fluxos
-  02-dados.md            ← 2. todas as tabelas, campos, relacionamentos
-  03-design.md           ← 3. paleta, fontes, componentes (após identidade)
-  04-seguranca.md        ← 4. RLS por perfil, LGPD, retenção
-  05-jornadas.md         ← 5. jornadas dos usuários e mapa de navegação
-  06-governanca.md       ← 6. regras de negócio fixas e decisões
-  07-implementacao.md    ← 7. ordem de build + tasks.md embutido
-  08-processos/          ← 8. sob demanda, antes de cada módulo
-    auth.md
-    condominios.md
-    unidades-moradores.md
-  CLAUDE/LOVABLE.md      ← arquivo raiz lido automaticamente`,
-      },
-      { kind: "subheading", text: "O que cada documento faz" },
-      {
-        kind: "list",
-        items: [
-          "**RULES.md** — Regras de como o código deve ser escrito: padrões de nome, estrutura de pastas, o que nunca fazer. Sem isso o Lovable toma atalhos que viram bug semanas depois.",
-          "**01-masterplan.md** — Visão geral do produto: o que ele faz, para quem, quais módulos existem e como se conectam. É o mapa que o Lovable consulta para entender o todo antes de mexer numa parte.",
-          "**02-dados.md** — Todas as tabelas do banco, campos, tipos e relacionamentos. Define a fundação. Mudar depois custa caro, por isso vem antes do build.",
-          "**03-design.md** — Paleta, fontes, componentes, tom de voz. Criado depois da identidade visual estar pronta (Seção 10).",
-          "**04-seguranca.md** — Quem pode ver e fazer o quê (RLS por perfil), regras de LGPD e retenção de dados. Vem junto com `dados.md` porque segurança nasce com a tabela, não depois.",
-          "**05-jornadas.md** — Os caminhos que cada tipo de usuário percorre no sistema. Ajuda o Lovable a entender o contexto de cada tela.",
-          "**06-governanca.md** — Regras de negócio fixas e decisões já tomadas (ex.: \"comunicado é imutável depois de enviado\"). Evita que a IA reinvente regra a cada sessão.",
-          "**07-implementacao.md** — A ordem em que cada módulo será construído, com `tasks.md` embutido. É o cronograma que o Lovable executa passo a passo.",
-          "**08-processos/[modulo].md** — Especificação detalhada de um módulo específico (auth, condomínios, etc.). Cria sob demanda, antes de mandar o Lovable construir aquele módulo.",
-          "**CLAUDE/LOVABLE.md** — Arquivo raiz lido automaticamente em toda sessão. Resumo de onde estão as informações importantes nos outros documentos.",
-        ],
-      },
-      {
-        kind: "paragraph",
-        text: "Cada documento desses faz com que o Lovable execute uma tarefa de cada vez, sem se perder. É igual ao ser humano: você não aprende tudo de uma vez nem executa um projeto inteiro num dia — você divide, aprende um pedaço, executa, valida e segue. Os documentos são a forma de impor esse ritmo à IA.",
-      },
-      {
-        kind: "callout",
-        variant: "warn",
-        title: "RULES.md é o mais ignorado e o mais importante",
-        text: "Sem ele, o Lovable toma atalhos ruins que aparecem como bugs complexos semanas depois.",
-      },
-    ],
-  },
-  {
-    number: 8,
-    slug: "context-engineering",
-    title: "Context engineering: o conceito que muda tudo",
-    path: "comum",
-    blocks: [
       {
         kind: "paragraph",
         text: "A IA tem dois problemas simultâneos: ela tem memória limitada por sessão (context window) e você tem memória limitada depois de horas de trabalho. Os documentos resolvem os dois.",
@@ -331,6 +329,10 @@ export const SECTIONS: GuideSectionData[] = [
       },
     ],
   },
+
+  // ============================================================
+  // PARTE II — PRÁTICA
+  // ============================================================
   {
     number: 9,
     slug: "fluxos",
@@ -390,6 +392,64 @@ export const SECTIONS: GuideSectionData[] = [
   },
   {
     number: 11,
+    slug: "documentos",
+    title: "Os documentos: estrutura e ordem",
+    path: "comum",
+    pathNote: "Para projetos com banco de dados",
+    blocks: [
+      {
+        kind: "paragraph",
+        text: "**O que é Markdown:** é um formato de texto simples que vira documento formatado. Pense no Word ou Google Docs: você clica em \"Negrito\" e o texto fica negrito. No Markdown você digita `**negrito**` e ele aparece negrito quando renderizado. `# Título` vira título grande, `- item` vira lista. A diferença é que o arquivo é leve, abre em qualquer editor e — o mais importante — **a IA lê melhor Markdown do que qualquer outro formato**. Os arquivos terminam em `.md`.",
+      },
+      { kind: "subheading", text: "A estrutura completa que uso" },
+      {
+        kind: "code",
+        lang: "text",
+        text: `docs/
+  RULES.md               ← 0. como o código deve ser escrito
+  01-masterplan.md       ← 1. visão geral, entidades, módulos, fluxos
+  02-dados.md            ← 2. todas as tabelas, campos, relacionamentos
+  03-design.md           ← 3. paleta, fontes, componentes (após identidade)
+  04-seguranca.md        ← 4. RLS por perfil, LGPD, retenção
+  05-jornadas.md         ← 5. jornadas dos usuários e mapa de navegação
+  06-governanca.md       ← 6. regras de negócio fixas e decisões
+  07-implementacao.md    ← 7. ordem de build + tasks.md embutido
+  08-processos/          ← 8. sob demanda, antes de cada módulo
+    auth.md
+    condominios.md
+    unidades-moradores.md
+  CLAUDE/LOVABLE.md      ← arquivo raiz lido automaticamente`,
+      },
+      { kind: "subheading", text: "O que cada documento faz" },
+      {
+        kind: "list",
+        items: [
+          "**RULES.md** — Regras de como o código deve ser escrito: padrões de nome, estrutura de pastas, o que nunca fazer. Sem isso o Lovable toma atalhos que viram bug semanas depois.",
+          "**01-masterplan.md** — Visão geral do produto: o que ele faz, para quem, quais módulos existem e como se conectam. É o mapa que o Lovable consulta para entender o todo antes de mexer numa parte.",
+          "**02-dados.md** — Todas as tabelas do banco, campos, tipos e relacionamentos. Define a fundação. Mudar depois custa caro, por isso vem antes do build.",
+          "**03-design.md** — Paleta, fontes, componentes, tom de voz. Criado depois da identidade visual estar pronta (Seção 10).",
+          "**04-seguranca.md** — Quem pode ver e fazer o quê (RLS por perfil), regras de LGPD e retenção de dados. Vem junto com `dados.md` porque segurança nasce com a tabela, não depois.",
+          "**05-jornadas.md** — Os caminhos que cada tipo de usuário percorre no sistema. Ajuda o Lovable a entender o contexto de cada tela.",
+          "**06-governanca.md** — Regras de negócio fixas e decisões já tomadas (ex.: \"comunicado é imutável depois de enviado\"). Evita que a IA reinvente regra a cada sessão.",
+          "**07-implementacao.md** — A ordem em que cada módulo será construído, com `tasks.md` embutido. É o cronograma que o Lovable executa passo a passo.",
+          "**08-processos/[modulo].md** — Especificação detalhada de um módulo específico (auth, condomínios, etc.). Cria sob demanda, antes de mandar o Lovable construir aquele módulo.",
+          "**CLAUDE/LOVABLE.md** — Arquivo raiz lido automaticamente em toda sessão. Resumo de onde estão as informações importantes nos outros documentos.",
+        ],
+      },
+      {
+        kind: "paragraph",
+        text: "Cada documento desses faz com que o Lovable execute uma tarefa de cada vez, sem se perder. É igual ao ser humano: você não aprende tudo de uma vez nem executa um projeto inteiro num dia — você divide, aprende um pedaço, executa, valida e segue. Os documentos são a forma de impor esse ritmo à IA.",
+      },
+      {
+        kind: "callout",
+        variant: "warn",
+        title: "RULES.md é o mais ignorado e o mais importante",
+        text: "Sem ele, o Lovable toma atalhos ruins que aparecem como bugs complexos semanas depois.",
+      },
+    ],
+  },
+  {
+    number: 12,
     slug: "configurando-lovable",
     title: "Configurando o Lovable com documentos",
     path: "comum",
@@ -425,42 +485,6 @@ export const SECTIONS: GuideSectionData[] = [
     ],
   },
   {
-    number: 12,
-    slug: "banco-seguranca",
-    title: "Banco de dados e segurança",
-    path: "comum",
-    blocks: [
-      {
-        kind: "paragraph",
-        text: "**O que é um banco de dados:** onde as informações ficam guardadas permanentemente. Pense como uma planilha inteligente onde cada linha tem um ID único e as planilhas se conectam.",
-      },
-      {
-        kind: "paragraph",
-        text: "**O que é RLS (Row Level Security):** define quem pode ver o quê. Sem isso, qualquer usuário logado vê os dados de todos os outros. O Lovable configura quando você descreve os perfis de acesso nos documentos.",
-      },
-      { kind: "subheading", text: "Regras que valem para qualquer projeto" },
-      {
-        kind: "list",
-        items: [
-          "Nunca deletar registros fisicamente — usar soft delete (campo `deleted_at`)",
-          "Toda tabela tem id, created_at, updated_at, deleted_at",
-          "Chaves secretas apenas em Edge Functions, nunca no frontend",
-          "Dados sensíveis nunca em localStorage ou URL",
-        ],
-      },
-      { kind: "subheading", text: "LGPD na prática" },
-      {
-        kind: "list",
-        items: [
-          "Colete o mínimo: nome, e-mail, telefone",
-          "Evite: CPF, RG, data de nascimento, dados bancários — exceto obrigação legal",
-          "Tenha: tela de consentimento com linguagem simples, checkbox não pré-marcado",
-          "Ofereça: botão de exclusão de dados (anonimização, não deleção física)",
-        ],
-      },
-    ],
-  },
-  {
     number: 13,
     slug: "dominio-dns-email",
     title: "Domínio, DNS e e-mail transacional",
@@ -489,25 +513,20 @@ export const SECTIONS: GuideSectionData[] = [
   },
   {
     number: 14,
-    slug: "seo-rastreamento",
-    title: "SEO e rastreamento",
-    path: "produto",
+    slug: "prompts-prontos",
+    title: "Prompts prontos para copiar e colar",
+    path: "comum",
     blocks: [
       {
         kind: "paragraph",
-        text: "**SEO:** conjunto de práticas que influencia em qual posição seu site aparece quando alguém pesquisa no Google. O Lovable já gera estrutura básica.",
-      },
-      { kind: "subheading", text: "Ferramentas de rastreamento" },
-      {
-        kind: "list",
-        items: [
-          "**Lovable Analytics** — nativo, simples, sem configuração. Começa aqui.",
-          "**LogRocket** — mostra exatamente como cada usuário navegou. Sessões com 1 segundo são robôs — ignore.",
-          "**Google Analytics** — mais completo, mais complexo. Deixe para quando o projeto estiver maduro.",
-        ],
+        text: "Esta seção existe para você não precisar pensar no prompt certo na hora errada. A galeria completa fica logo abaixo desta seção, com botão de copiar em cada um. Mais embaixo tem também um **gerador de prompt personalizado** que usa Lovable AI para construir um prompt sob medida para o seu problema.",
       },
     ],
   },
+
+  // ============================================================
+  // PARTE III — DEPOIS DO BUILD
+  // ============================================================
   {
     number: 15,
     slug: "changelog",
@@ -582,18 +601,6 @@ export const SECTIONS: GuideSectionData[] = [
   },
   {
     number: 17,
-    slug: "prompts-prontos",
-    title: "Prompts prontos para copiar e colar",
-    path: "comum",
-    blocks: [
-      {
-        kind: "paragraph",
-        text: "Esta seção existe para você não precisar pensar no prompt certo na hora errada. A galeria completa fica logo abaixo desta seção, com botão de copiar em cada um. Mais embaixo tem também um **gerador de prompt personalizado** que usa Lovable AI para construir um prompt sob medida para o seu problema.",
-      },
-    ],
-  },
-  {
-    number: 18,
     slug: "debug",
     title: "Debug: protocolo quando travar",
     path: "comum",
@@ -625,7 +632,7 @@ export const SECTIONS: GuideSectionData[] = [
     ],
   },
   {
-    number: 19,
+    number: 18,
     slug: "github-claude-code",
     title: "GitHub e Claude Code",
     path: "comum",
@@ -661,7 +668,7 @@ claude`,
     ],
   },
   {
-    number: 20,
+    number: 19,
     slug: "caso-cristina",
     title: "Caso real: Amaro - Gestão Condominial",
     path: "comum",
@@ -673,7 +680,7 @@ claude`,
     ],
   },
   {
-    number: 21,
+    number: 20,
     slug: "checklist-producao",
     title: "Antes de publicar: checklist de produção",
     path: "comum",
@@ -726,7 +733,7 @@ claude`,
     ],
   },
   {
-    number: 22,
+    number: 21,
     slug: "faq",
     title: "FAQ",
     path: "comum",
