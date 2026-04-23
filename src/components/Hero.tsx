@@ -34,7 +34,7 @@ const Hero = () => {
             Este projeto é onde organizo meus pensamentos e aprendizado.
             É feito para enviar a amigos, melhorar com o tempo, e talvez
             monetizar mais para frente. O fio condutor é um caso real:
-            o sistema <strong>Cristina Gestão Condominial</strong>.
+            o sistema <strong>Amaro - Gestão Condominial</strong>.
           </p>
 
           <a
