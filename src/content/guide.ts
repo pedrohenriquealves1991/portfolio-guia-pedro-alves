@@ -740,57 +740,52 @@ claude`,
     blocks: [
       {
         kind: "paragraph",
-        text: "Respostas diretas para as dúvidas mais comuns que aparecem durante o processo de construção.",
+        text: "Respostas diretas para as dúvidas mais comuns que aparecem durante o processo de construção. Clique em cada pergunta para abrir.",
       },
-      { kind: "subheading", text: "Preciso saber programar para usar o Lovable?" },
       {
-        kind: "paragraph",
-        text: "Não precisa, mas o quanto mais você souber sobre design e arquitetura de sistemas, melhor será sua entrega. Dominar o uso de APIs expande muito as possibilidades do seu sistema. Pense no Lovable como um acelerador: ele não substitui o conhecimento, mas multiplica sua velocidade de execução.",
-      },
-      { kind: "subheading", text: "Quanto custa construir um sistema assim?" },
-      {
-        kind: "paragraph",
-        text: "Por experiência própria, um bom sistema estruturado fora do Lovable pode custar uns 100-150 créditos, o equivalente a 25 dólares. Isso inclui iterações, testes e ajustes. Projetos mais complexos ou com muitas integrações podem chegar a 200-300 créditos. O custo-benefício ainda é muito superior ao desenvolvimento tradicional.",
-      },
-      { kind: "subheading", text: "O que acontece se o Lovable fechar amanhã?" },
-      {
-        kind: "paragraph",
-        text: "Seu código não some. O Lovable gera código React/TypeScript padrão que fica no seu repositório GitHub. Você pode continuar desenvolvendo localmente ou contratar um desenvolvedor para manter. O banco de dados (Supabase/Lovable Cloud) é independente — seus dados continuam lá. A única coisa que perde é a interface visual de edição. Recomendo: exporte seu código periodicamente para o GitHub e mantenha backups do banco.",
-      },
-      { kind: "subheading", text: "Preciso de CNPJ para publicar um produto?" },
-      {
-        kind: "paragraph",
-        text: "Com o Paddle (processador de pagamentos integrado do Lovable), você pode vender sem CNPJ inicialmente — ele funciona como marketplace e repassa os valores. Mas é altamente recomendável ter um CNPJ, pode ser MEI, escolhendo um CNAE relacionado a serviços de TI. Se o produto evoluir, existe um CNPJ especial para startups (Startup Simples). De todo modo, recomendo procurar um contador para estruturar corretamente desde o início.",
-      },
-      { kind: "subheading", text: "Quanto tempo leva para construir um sistema como o SíndicaPro?" },
-      {
-        kind: "paragraph",
-        text: "Entre planejamento, construção e testes aliados à rotina de quem já trabalha, no mínimo uma semana. O SíndicaPro levou cerca de 10 dias de trabalho efetivo, espalhados por 3 semanas considerando revisões e ajustes após feedback da usuária real. Quanto mais complexa a lógica de negócio e quanto mais integrações, mais tempo. Mas o Lovable acelera drasticamente — o mesmo sistema em código tradicional levaria 2-3 meses.",
-      },
-      { kind: "subheading", text: "Consigo migrar para fora do Lovable depois?" },
-      {
-        kind: "paragraph",
-        text: "Sim, completamente. O Lovable gera código React/TypeScript/Tailwind padrão — não é código proprietário. Você pode clonar do GitHub, rodar localmente com `npm install` e `npm run dev`, e continuar desenvolvendo em qualquer editor (VS Code, Cursor, etc.). O banco de dados (Supabase) continua funcionando independentemente — você só precisa das credenciais. A migração é técnica, então se não souber código, precisará de um desenvolvedor para fazer a transição. Mas seus dados e seu código nunca ficam presos.",
-      },
-      { kind: "subheading", text: "Qual a diferença entre Lovable e Bubble?" },
-      {
-        kind: "paragraph",
-        text: "Lovable gera código real (React/TypeScript) que você pode exportar e editar em qualquer lugar. Bubble é uma plataforma no-code tradicional — você constrói dentro deles e fica preso na plataforma deles. Se o Bubble fechar ou mudar preço, você perde tudo. Se o Lovable fechar, seu código continua funcionando. Além disso, Lovable usa IA generativa — você descreve em português e ele constrói. Bubble é mais visual, arrasta-e-solta. Para quem quer propriedade do código e flexibilidade futura, Lovable é superior.",
-      },
-      { kind: "subheading", text: "Posso usar o mesmo sistema para vários clientes?" },
-      {
-        kind: "paragraph",
-        text: "Pode, mas será muito mais complexo. Você estará construindo um sistema multitenant — onde cada cliente vê apenas seus dados, mas todos usam a mesma codebase. Isso exige arquitetura robusta de isolamento de dados (RLS complexo), controle de acesso por tenant, e gerenciamento de configurações por cliente. Não é impossível, mas aumenta drasticamente a complexidade. Para começar, recomendo replicar o sistema para cada cliente (código separado, banco separado). Quando tiver domínio e receita estável, aí sim evolua para multitenant. Em breve abordarei isso aqui no guia.",
-      },
-      { kind: "subheading", text: "O que é o Supabase exatamente?" },
-      {
-        kind: "paragraph",
-        text: "Supabase é um conjunto de ferramentas open-source que substitui Firebase (da Google). Ele fornece: banco de dados PostgreSQL (onde seus dados ficam guardados), autenticação de usuários (login, senha, recuperação), storage de arquivos (upload de documentos, imagens), e funções serverless (código que roda no servidor). O Lovable usa Supabase como backend padrão — quando você cria tabelas no Lovable, elas vão para o Supabase. A diferença é que no Lovable você não precisa configurar nada manualmente — a integração é automática. Se quiser acessar diretamente, o Supabase tem dashboard próprio, mas para uso com Lovable raramente é necessário.",
-      },
-      { kind: "subheading", text: "Por que o processo de documentos parece muito trabalho?" },
-      {
-        kind: "paragraph",
-        text: "É muito trabalho mesmo. Porque estruturar um processo é algo complexo. Muitas empresas não possuem processos documentados — são dependentes de pessoas que os conhecem na cabeça. Se essas pessoas se ausentam, o processo fica órfão. Documentar força você a tornar explícito o que está implícito, a identificar gaps, a definir responsabilidades. É trabalhoso, mas é o que separa um sistema que funciona de um que vira bagunça em 3 meses. O tempo investido em documentação é poupado em retrabalho depois.",
+        kind: "faq",
+        items: [
+          {
+            q: "Preciso saber programar para usar o Lovable?",
+            a: "Não precisa, mas o quanto mais você souber sobre design e arquitetura de sistemas, melhor será sua entrega. Dominar o uso de APIs expande muito as possibilidades do seu sistema. Pense no Lovable como um acelerador: ele não substitui o conhecimento, mas multiplica sua velocidade de execução.",
+          },
+          {
+            q: "Quanto custa construir um sistema assim?",
+            a: "Por experiência própria, um bom sistema estruturado fora do Lovable pode custar uns 100-150 créditos, o equivalente a 25 dólares. Isso inclui iterações, testes e ajustes. Projetos mais complexos ou com muitas integrações podem chegar a 200-300 créditos. O custo-benefício ainda é muito superior ao desenvolvimento tradicional.",
+          },
+          {
+            q: "O que acontece se o Lovable fechar amanhã?",
+            a: "Seu código não some. O Lovable gera código React/TypeScript padrão que fica no seu repositório GitHub. Você pode continuar desenvolvendo localmente ou contratar um desenvolvedor para manter. O banco de dados (Supabase/Lovable Cloud) é independente — seus dados continuam lá. A única coisa que perde é a interface visual de edição. Recomendo: exporte seu código periodicamente para o GitHub e mantenha backups do banco.",
+          },
+          {
+            q: "Preciso de CNPJ para publicar um produto?",
+            a: "Com o Paddle (processador de pagamentos integrado do Lovable), você pode vender sem CNPJ inicialmente — ele funciona como marketplace e repassa os valores. Mas é altamente recomendável ter um CNPJ, pode ser MEI, escolhendo um CNAE relacionado a serviços de TI. Se o produto evoluir, existe um CNPJ especial para startups (Startup Simples). De todo modo, recomendo procurar um contador para estruturar corretamente desde o início.",
+          },
+          {
+            q: "Quanto tempo leva para construir um sistema como o SíndicaPro?",
+            a: "Entre planejamento, construção e testes aliados à rotina de quem já trabalha, no mínimo uma semana. O SíndicaPro levou cerca de 10 dias de trabalho efetivo, espalhados por 3 semanas considerando revisões e ajustes após feedback da usuária real. Quanto mais complexa a lógica de negócio e quanto mais integrações, mais tempo. Mas o Lovable acelera drasticamente — o mesmo sistema em código tradicional levaria 2-3 meses.",
+          },
+          {
+            q: "Consigo migrar para fora do Lovable depois?",
+            a: "Sim, completamente. O Lovable gera código React/TypeScript/Tailwind padrão — não é código proprietário. Você pode clonar do GitHub, rodar localmente com `npm install` e `npm run dev`, e continuar desenvolvendo em qualquer editor (VS Code, Cursor, etc.). O banco de dados (Supabase) continua funcionando independentemente — você só precisa das credenciais. A migração é técnica, então se não souber código, precisará de um desenvolvedor para fazer a transição. Mas seus dados e seu código nunca ficam presos.",
+          },
+          {
+            q: "Qual a diferença entre Lovable e Bubble?",
+            a: "Lovable gera código real (React/TypeScript) que você pode exportar e editar em qualquer lugar. Bubble é uma plataforma no-code tradicional — você constrói dentro deles e fica preso na plataforma deles. Se o Bubble fechar ou mudar preço, você perde tudo. Se o Lovable fechar, seu código continua funcionando. Além disso, Lovable usa IA generativa — você descreve em português e ele constrói. Bubble é mais visual, arrasta-e-solta. Para quem quer propriedade do código e flexibilidade futura, Lovable é superior.",
+          },
+          {
+            q: "Posso usar o mesmo sistema para vários clientes?",
+            a: "Pode, mas será muito mais complexo. Você estará construindo um sistema multitenant — onde cada cliente vê apenas seus dados, mas todos usam a mesma codebase. Isso exige arquitetura robusta de isolamento de dados (RLS complexo), controle de acesso por tenant, e gerenciamento de configurações por cliente. Não é impossível, mas aumenta drasticamente a complexidade. Para começar, recomendo replicar o sistema para cada cliente (código separado, banco separado). Quando tiver domínio e receita estável, aí sim evolua para multitenant. Em breve abordarei isso aqui no guia.",
+          },
+          {
+            q: "O que é o Supabase exatamente?",
+            a: "Supabase é um conjunto de ferramentas open-source que substitui Firebase (da Google). Ele fornece: banco de dados PostgreSQL (onde seus dados ficam guardados), autenticação de usuários (login, senha, recuperação), storage de arquivos (upload de documentos, imagens), e funções serverless (código que roda no servidor). O Lovable usa Supabase como backend padrão — quando você cria tabelas no Lovable, elas vão para o Supabase. A diferença é que no Lovable você não precisa configurar nada manualmente — a integração é automática. Se quiser acessar diretamente, o Supabase tem dashboard próprio, mas para uso com Lovable raramente é necessário.",
+          },
+          {
+            q: "Por que o processo de documentos parece muito trabalho?",
+            a: "É muito trabalho mesmo. Porque estruturar um processo é algo complexo. Muitas empresas não possuem processos documentados — são dependentes de pessoas que os conhecem na cabeça. Se essas pessoas se ausentam, o processo fica órfão. Documentar força você a tornar explícito o que está implícito, a identificar gaps, a definir responsabilidades. É trabalhoso, mas é o que separa um sistema que funciona de um que vira bagunça em 3 meses. O tempo investido em documentação é poupado em retrabalho depois.",
+          },
+        ],
       },
     ],
   },
