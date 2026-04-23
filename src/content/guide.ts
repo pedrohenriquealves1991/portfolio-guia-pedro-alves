@@ -649,7 +649,7 @@ claude`,
   {
     number: 20,
     slug: "caso-cristina",
-    title: "Caso real: Cristina Gestão Condominial",
+    title: "Caso real: Amaro - Gestão Condominial",
     path: "comum",
     blocks: [
       {
