@@ -198,7 +198,7 @@ const TimelineCristina = () => {
             Cristina Gestão Condominial
           </h2>
           <p className="text-foreground/75 text-base md:text-lg max-w-2xl leading-relaxed">
-            Sistema construído para a minha tia, síndica profissional em Curitiba.
+            Sistema construído para a minha Dinda, síndica profissional em Curitiba.
             A linha do tempo abaixo é atualizada conforme o projeto avança.
           </p>
         </motion.div>
