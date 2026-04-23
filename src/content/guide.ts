@@ -666,7 +666,7 @@ claude`,
     blocks: [
       {
         kind: "paragraph",
-        text: "Esta seção nasceu de uma revisão real do projeto Cristina Gestão Condominial feita pelo próprio Lovable depois do primeiro deploy. Ele identificou lacunas que nenhum documento havia coberto.",
+        text: "Esta seção nasceu de uma revisão real do projeto Amaro - Gestão Condominial feita pelo próprio Lovable depois do primeiro deploy. Ele identificou lacunas que nenhum documento havia coberto.",
       },
       {
         kind: "checklist",
