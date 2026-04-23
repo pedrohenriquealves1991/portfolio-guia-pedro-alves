@@ -564,6 +564,13 @@ export const SECTIONS: GuideSectionData[] = [
 ### Documentação
 - [DOC] RULES.md atualizado: regra sobre Edge Functions`,
       },
+      { kind: "subheading", text: "Se você construir, já documenta" },
+      {
+        kind: "paragraph",
+        text: "O Prompt 2 (Build padrão) — usado a cada grupo de tarefas concluído na fase de construção — já inclui a instrução de atualizar o CHANGELOG.md automaticamente. **Build e documentação andam juntos no mesmo prompt**. É por isso que o CHANGELOG aparece aqui de novo: o prompt de build é o motor que mantém esse arquivo vivo.",
+      },
+      { kind: "prompt", id: "p2" },
+      { kind: "subheading", text: "Se esqueceu de configurar no início" },
       { kind: "prompt", id: "p6" },
     ],
   },
