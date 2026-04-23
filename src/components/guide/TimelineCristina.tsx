@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Check, Circle } from "lucide-react";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 interface PhaseItem {
   text: string;
@@ -99,11 +101,9 @@ Regra nova no RULES.md: toda inserção em tabela com CHECK constraint precisa e
 const PhaseColumn = ({
   title,
   items,
-  side,
 }: {
   title: string;
   items: PhaseItem[];
-  side: "left" | "right";
 }) => (
   <div>
     <h3 className="font-display font-bold text-xl text-foreground mb-4 uppercase tracking-wider">
@@ -138,6 +138,11 @@ const PhaseColumn = ({
 
 const ErrorCard = ({ title, summary, body, idx }: ErrorCardProps & { idx: number }) => {
   const [open, setOpen] = useState(false);
+  const { lang } = useLanguage();
+  const badgeLabel = translations.timelineCristina.errorBadge[lang].replace(
+    "{n}",
+    String(idx + 1)
+  );
   const rotate = idx % 2 === 0 ? "-rotate-[0.4deg]" : "rotate-[0.4deg]";
   return (
     <motion.div
@@ -153,7 +158,7 @@ const ErrorCard = ({ title, summary, body, idx }: ErrorCardProps & { idx: number
       >
         <div className="min-w-0">
           <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/60 mb-1">
-            Erro #{idx + 1} documentado
+            {badgeLabel}
           </p>
           <h4 className="font-display font-bold text-lg text-card-foreground mb-1">
             {title}
@@ -178,6 +183,8 @@ const ErrorCard = ({ title, summary, body, idx }: ErrorCardProps & { idx: number
 };
 
 const TimelineCristina = () => {
+  const { lang } = useLanguage();
+  const t = translations.timelineCristina;
   return (
     <section
       id="timeline-cristina"
@@ -192,33 +199,32 @@ const TimelineCristina = () => {
           className="mb-10"
         >
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60 mb-2">
-            Caso real — fio condutor do guia
+            {t.eyebrow[lang]}
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-3">
             Amaro - Gestão Condominial
           </h2>
           <p className="text-foreground/75 text-base md:text-lg max-w-2xl leading-relaxed">
-            Sistema construído <strong>no Lovable</strong> para a minha Dinda, síndica profissional em Curitiba.
-            A linha do tempo abaixo é atualizada conforme o projeto avança.{" "}
+            <span dangerouslySetInnerHTML={{ __html: t.intro[lang] }} />{" "}
             <a
               href="https://amarogestaocondominial.lovable.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="underline decoration-2 underline-offset-2 hover:text-primary transition-colors font-semibold"
             >
-              Ver o sistema ao vivo →
+              {t.liveLink[lang]}
             </a>
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
-          <PhaseColumn title="Planejamento (concluído)" items={planejamento} side="left" />
-          <PhaseColumn title="Build no Lovable" items={build} side="right" />
+          <PhaseColumn title={t.colPlanning[lang]} items={planejamento} />
+          <PhaseColumn title={t.colBuild[lang]} items={build} />
         </div>
 
         <div className="space-y-4">
           <h3 className="font-display font-bold text-2xl text-foreground mb-2">
-            Erros documentados
+            {t.errorsTitle[lang]}
           </h3>
           {errorCards.map((e, i) => (
             <ErrorCard key={i} {...e} idx={i} />
