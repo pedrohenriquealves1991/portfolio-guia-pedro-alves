@@ -1,17 +1,8 @@
-import { create } from "zustand";
-
-// simple lightweight store without zustand dependency
-
+import { useEffect, useState } from "react";
 import type { Path } from "@/content/types";
 
-type Filter = "all" | "backoffice" | "produto";
+export type Filter = "all" | "backoffice" | "produto";
 
-interface JourneyState {
-  filter: Filter;
-  setFilter: (f: Filter) => void;
-}
-
-// fallback simple store
 let state: Filter = "all";
 const listeners = new Set<() => void>();
 
@@ -24,9 +15,16 @@ export function setJourney(f: Filter) {
   listeners.forEach((l) => l());
 }
 
-export function subscribeJourney(l: () => void) {
-  listeners.add(l);
-  return () => listeners.delete(l);
+export function useJourney(): [Filter, (f: Filter) => void] {
+  const [, force] = useState(0);
+  useEffect(() => {
+    const l = () => force((n) => n + 1);
+    listeners.add(l);
+    return () => {
+      listeners.delete(l);
+    };
+  }, []);
+  return [state, setJourney];
 }
 
 export function shouldShow(sectionPath: Path, filter: Filter): boolean {
@@ -34,5 +32,3 @@ export function shouldShow(sectionPath: Path, filter: Filter): boolean {
   if (sectionPath === "comum") return true;
   return sectionPath === filter;
 }
-
-export type { Filter };
