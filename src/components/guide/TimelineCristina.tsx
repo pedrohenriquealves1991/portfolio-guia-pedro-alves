@@ -195,11 +195,19 @@ const TimelineCristina = () => {
             Caso real — fio condutor do guia
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-3">
-            Cristina Gestão Condominial
+            Amaro - Gestão Condominial
           </h2>
           <p className="text-foreground/75 text-base md:text-lg max-w-2xl leading-relaxed">
-            Sistema construído para a minha Dinda, síndica profissional em Curitiba.
-            A linha do tempo abaixo é atualizada conforme o projeto avança.
+            Sistema construído <strong>no Lovable</strong> para a minha Dinda, síndica profissional em Curitiba.
+            A linha do tempo abaixo é atualizada conforme o projeto avança.{" "}
+            <a
+              href="https://amarogestaocondominial.lovable.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-2 underline-offset-2 hover:text-primary transition-colors font-semibold"
+            >
+              Ver o sistema ao vivo →
+            </a>
           </p>
         </motion.div>
 
