@@ -31,7 +31,31 @@ const FinalCTA = () => {
   };
 
   return (
-    <section id="cta-final" className="py-20 px-6 md:px-12 scroll-mt-24">
+    <section id="cta-final" className="py-20 px-6 md:px-12 scroll-mt-24 space-y-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-3xl mx-auto bg-secondary border-2 border-foreground rounded-sm p-8 md:p-12 shadow-[8px_8px_0_0_hsl(var(--foreground))] text-center rotate-1"
+      >
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/70 mb-3">
+          {dl.heroButton[lang]}
+        </p>
+        <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground tracking-tight mb-4 leading-tight">
+          {dl.ctaTitle[lang]}
+        </h2>
+        <p className="text-foreground/85 text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+          {dl.ctaBody[lang]}
+        </p>
+        <button
+          onClick={() => setDlOpen(true)}
+          className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background font-bold uppercase text-sm tracking-wider rounded-sm hover:bg-foreground/85 transition-colors"
+        >
+          <Download className="w-4 h-4" /> {dl.ctaButton[lang]}
+        </button>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -65,6 +89,8 @@ const FinalCTA = () => {
           </a>
         </div>
       </motion.div>
+
+      <DownloadGateDialog open={dlOpen} onOpenChange={setDlOpen} />
     </section>
   );
 };
