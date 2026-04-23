@@ -1,1 +1,10 @@
 project_id = "esnbdxjesqeovprmtcex"
+
+[functions.register-guide-download]
+verify_jwt = false
+
+[functions.list-guide-downloads]
+verify_jwt = false
+
+[functions.generate-prompt]
+verify_jwt = false
