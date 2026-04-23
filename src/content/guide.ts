@@ -10,11 +10,11 @@ export const SECTIONS: GuideSectionData[] = [
       {
         kind: "callout",
         variant: "info",
-        text: "Você tem um processo que funciona no WhatsApp, no Excel ou na memória. Dá para virar um sistema. Eu fiz isso para a minha tia.",
+        text: "Você tem um processo que funciona no WhatsApp, no Excel ou na memória. Dá para virar um sistema. Eu fiz isso para a minha Dinda.",
       },
       {
         kind: "paragraph",
-        text: "Este guia é pessoal, direto, sem motivacional. Quem fala é alguém que errou, aprendeu e documenta o que funciona. O caso real que atravessa o guia inteiro é o sistema **Cristina Gestão Condominial** — construído para a minha tia, síndica profissional em Curitiba.",
+        text: "Este guia é pessoal, direto, sem motivacional. Quem fala é alguém que errou, aprendeu e documenta o que funciona. O caso real que atravessa o guia inteiro é o sistema **Cristina Gestão Condominial** — construído para a minha Dinda, síndica profissional em Curitiba.",
       },
       {
         kind: "paragraph",

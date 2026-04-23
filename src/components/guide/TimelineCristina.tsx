@@ -9,9 +9,9 @@ interface PhaseItem {
 }
 
 const planejamento: PhaseItem[] = [
-  { text: "Dois áudios da tia → transcrição → análise do diferencial real", done: true },
+  { text: "Dois áudios da Dinda → transcrição → análise do diferencial real", done: true },
   { text: "Perguntas de descoberta → respostas → perfil do negócio definido", done: true },
-  { text: "Mensagem para a tia validando os módulos do sistema", done: true },
+  { text: "Mensagem para a Dinda validando os módulos do sistema", done: true },
   { text: "Masterplan v1 → v2 → v3", done: true },
   { text: "Entidades e relacionamentos definidos", done: true },
   { text: "15 fluxos de UX mapeados", done: true },
@@ -44,7 +44,7 @@ const build: PhaseItem[] = [
   { text: "Grupo 11: portal do condômino", done: false },
   { text: "Grupos 12–15: refinamentos e relatórios", done: false },
   { text: "Configuração de domínio e Resend", done: false },
-  { text: "Testes com a usuária real (a tia)", done: false },
+  { text: "Testes com a usuária real (a Dinda)", done: false },
   { text: "Deploy final", done: false },
 ];
 
@@ -198,7 +198,7 @@ const TimelineCristina = () => {
             Cristina Gestão Condominial
           </h2>
           <p className="text-foreground/75 text-base md:text-lg max-w-2xl leading-relaxed">
-            Sistema construído para a minha tia, síndica profissional em Curitiba.
+            Sistema construído para a minha Dinda, síndica profissional em Curitiba.
             A linha do tempo abaixo é atualizada conforme o projeto avança.
           </p>
         </motion.div>
