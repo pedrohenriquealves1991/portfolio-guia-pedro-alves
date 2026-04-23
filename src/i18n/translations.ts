@@ -22,15 +22,15 @@ export const translations = {
       pt: "Guia pessoal · em construção",
       en: "Personal guide · in progress",
     },
-    title1: { pt: "Um Guia", en: "An Honest" },
+    title1: { pt: "Meu Guia", en: "An Honest" },
     title2: { pt: "Sincero de", en: "Guide to" },
     titleHighlight: { pt: "Vibe Coding", en: "Vibe Coding" },
     bodyA: {
-      pt: "Para quem quer usar IA no <strong>emprego CLT</strong> ou criar uma ferramenta como <strong>profissional liberal</strong> — sem promessas de produtos revolucionários nem renda passiva milionária. Só fluxos melhores que os de hoje.",
+      pt: "Para quem quer usar IA no seu emprego CLT ou criar uma ferramenta como profissional liberal — sem promessas de produtos revolucionários nem renda passiva milionária. Só fluxos melhores que os quais você provavelmente utiliza hoje.",
       en: "For people who want to use AI in their <strong>day job</strong> or build a tool as a <strong>freelancer</strong> — no revolutionary product promises, no millionaire passive income claims. Just better workflows than the ones you have today.",
     },
     bodyB: {
-      pt: "Este projeto é onde organizo meus pensamentos e aprendizado. É feito para enviar a amigos, melhorar com o tempo, e talvez monetizar mais para frente. O fio condutor é um caso real: o sistema <strong>Amaro - Gestão Condominial</strong>.",
+      pt: "Este projeto é onde organizo meus pensamentos e aprendizado. É feito para enviar a amigos, melhorar com o tempo, e talvez monetizar mais para frente. O fio condutor é o sistema Amaro - Gestão Condominial que fiz para minha Dinda.",
       en: "This project is where I organise my thoughts and what I learn. It's meant to be shared with friends, improved over time, and maybe monetised later. The recurring case study is a real system: <strong>Amaro - Gestão Condominial</strong>.",
     },
     cta: {

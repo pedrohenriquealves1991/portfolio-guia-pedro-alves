@@ -10,15 +10,15 @@ export const SECTIONS: GuideSectionData[] = [
       {
         kind: "callout",
         variant: "info",
-        text: "Você tem um processo que funciona no WhatsApp, no Excel ou na memória. Dá para virar um sistema. Eu fiz isso para a minha Dinda.",
+        text: "Se você tem um processo que funciona com formulário em Word, WhatsApp, Excel ou na memória. Com vibe code, isso pode virar um sistema. Eu fiz isso para funções do meu trabalho e também um site para a minha Dinda.",
       },
       {
         kind: "paragraph",
-        text: "Este guia é pessoal, direto, sem motivacional. Quem fala é alguém que errou, aprendeu e documenta o que funciona. O caso real que atravessa o guia inteiro é o sistema **Amaro - Gestão Condominial** — construído no Lovable para a minha Dinda, síndica profissional em Curitiba. Veja ao vivo: https://amarogestaocondominial.lovable.app/",
+        text: "Este guia é pessoal, direto, sem motivacional. Quem fala é alguém que errou, viu mil tutoriais, aprendeu e documenta o que funciona. O caso real que atravessa esse guia inteiro é o sistema Amaro - Gestão Condominial — construído no Lovable para a minha Dinda, síndica profissional em Curitiba. Conheça o projeto: https://amarogestaocondominial.lovable.app/",
       },
       {
         kind: "paragraph",
-        text: "Não vou prometer produto revolucionário, milhões em renda passiva ou \"larga seu emprego\". O que este guia entrega é uma forma sincera de melhorar fluxos que você já tem hoje — seja no seu CLT, seja como profissional liberal.",
+        text: "Não vou prometer produto revolucionário, milhões em renda passiva com um SaaS ou \"larga seu emprego\". O que este guia entrega é uma forma sincera de melhorar fluxos que você já tem hoje — seja no seu CLT, seja como profissional liberal.",
       },
     ],
   },
@@ -30,16 +30,16 @@ export const SECTIONS: GuideSectionData[] = [
     blocks: [
       {
         kind: "paragraph",
-        text: "Vibe coding é um novo nível de abstração no uso de programação. Antes você precisava de um desenvolvedor. Agora é possível usar IA para criar sistemas integrados — com banco de dados, múltiplos usuários e lógica automática — sem escrever código. Você descreve o que quer. A IA escreve o código. Você dirige por meio de linguagem humana.",
+        text: "Vibe coding é um novo nível de abstração no uso de programação. Antes você precisava de um desenvolvedor para criar uma simples automação de um processo. Agora é possível usar IA para criar sistemas integrados — com banco de dados, múltiplos usuários e lógica automática — sem escrever código. Sabe aquele cadastro de cliente ou aquela planilha que todos os setores acessavam e cada um preenchia um dado para depois gerar um relatório ou ser transcrito para um sistema, agora você descreve esse processo e o que quer e a IA escreve o código. Você dirige por meio de linguagem humana.",
       },
       {
         kind: "paragraph",
-        text: "Mas vai além de conversar com um chat e pedir para revisar um e-mail. É usar IA para transformar um processo que você conhece em software funcional.",
+        text: "O vibe coding é usar a IA para além de conversar com um chat e pedir para revisar um e-mail. É usar IA para transformar um processo que você conhece em software funcional.",
       },
       { kind: "subheading", text: "Como fazer isso bem" },
       {
         kind: "paragraph",
-        text: "**Dando contexto.** A IA não sabe do seu negócio. Você precisa explicar com detalhes. Use digitação por voz para descrever sua ideia. Envie documentos, fotos, prints de e-mails, fluxos desenhados à mão. A IA é ótima para organizar o que você fala de forma vaga.",
+        text: "Escolhendo as ferramentas certas e dando contexto. A IA não sabe do seu negócio ou processo, ela é como um funcionário novo. Você precisa explicar com detalhes. Use digitação por voz para descrever sua ideia. Envie documentos, fotos, prints de e-mails, fluxos desenhados à mão. A IA é ótima para organizar o que você fala de forma vaga.",
       },
       {
         kind: "paragraph",
