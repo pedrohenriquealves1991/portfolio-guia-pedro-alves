@@ -7,6 +7,12 @@ import ChecklistCard from "./ChecklistCard";
 import CalloutCard from "./CalloutCard";
 import { getPrompt } from "@/content/prompts";
 import { renderInline } from "./inline";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface GuideSectionProps {
   section: GuideSectionData;
@@ -140,6 +146,30 @@ const GuideSection = ({ section, index }: GuideSectionProps) => {
                       </li>
                     ))}
                   </ul>
+                );
+              case "faq":
+                return (
+                  <Accordion
+                    key={i}
+                    type="single"
+                    collapsible
+                    className="my-6 space-y-3"
+                  >
+                    {block.items.map((it, j) => (
+                      <AccordionItem
+                        key={j}
+                        value={`faq-${i}-${j}`}
+                        className="border-2 border-foreground rounded-sm bg-background shadow-[4px_4px_0_0_hsl(var(--foreground))] data-[state=open]:shadow-[6px_6px_0_0_hsl(var(--primary))] transition-shadow px-4 md:px-5"
+                      >
+                        <AccordionTrigger className="font-display text-base md:text-lg font-bold text-foreground hover:no-underline text-left py-4 gap-4">
+                          {it.q}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-foreground/85 leading-relaxed text-base pb-4">
+                          {renderInline(it.a)}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
                 );
               default:
                 return null;

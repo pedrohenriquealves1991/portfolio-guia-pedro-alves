@@ -9,7 +9,8 @@ export type Block =
   | { kind: "prompt"; id: string }
   | { kind: "tools"; ids: string[] }
   | { kind: "checklist"; title?: string; items: string[] }
-  | { kind: "links"; items: { label: string; href: string }[] };
+  | { kind: "links"; items: { label: string; href: string }[] }
+  | { kind: "faq"; items: { q: string; a: string }[] };
 
 export interface GuideSectionData {
   number: number | null; // null = INTRO
