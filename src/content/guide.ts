@@ -36,6 +36,14 @@ export const SECTIONS: GuideSectionData[] = [
         kind: "paragraph",
         text: "O vibe coding é usar a IA para além de conversar com um chat e pedir para revisar um e-mail. É usar IA para transformar um processo que você conhece em software funcional.",
       },
+      {
+        kind: "paragraph",
+        text: "Tudo começa com brainstorming. Eu crio um **Projeto no Claude** para conversar livremente sobre o que faço no dia a dia, despejar o processo todo por voz e fazer o upload do máximo de documentos possíveis — formulários em Word, planilhas, prints de WhatsApp, fluxos rabiscados. Deixo a IA organizar essa bagunça antes de pensar em escrever uma linha de código.",
+      },
+      {
+        kind: "paragraph",
+        text: "Importante: este guia é sobre **sistemas com fluxos mais complexos que se conectam** — múltiplos usuários, banco de dados, lógica automática. Não é sobre landing pages ou formulários simples.",
+      },
       { kind: "subheading", text: "Como fazer isso bem" },
       {
         kind: "paragraph",
@@ -46,6 +54,10 @@ export const SECTIONS: GuideSectionData[] = [
         text: "**Usando linguagem clara.** Fale como se estivesse explicando para um colega que você está treinando. Esqueça \"engenharia de prompt\" — o que importa é transmitir sua ideia com clareza.",
       },
       { kind: "subheading", text: "Aprendendo pela fonte antes de comprar curso" },
+      {
+        kind: "paragraph",
+        text: "Antes de pagar qualquer curso na internet, **faça os cursos das próprias plataformas que você escolher usar**. São gratuitos, oficiais e cobrem o básico melhor que a maioria dos infoprodutos. Recomendo estes para aprender os conceitos que abordo no guia:",
+      },
       {
         kind: "links",
         items: [
@@ -59,7 +71,7 @@ export const SECTIONS: GuideSectionData[] = [
         kind: "callout",
         variant: "warn",
         title: "Sobre o FOMO",
-        text: "A cada dia surge uma ferramenta nova e parece que você está ficando para trás. Mas seu uso de IA é para resolver um problema real — no seu trabalho, no seu negócio, na vida de alguém próximo. Escolha uma ou duas ferramentas e vá fundo. O resto é ruído.",
+        text: "Quando você começar a procurar tutoriais no YouTube e na internet, vai ser bombardeado com conteúdo de IA todos os dias e parecer que está atrasado. **Você não está atrasado.** Seu uso de IA é para resolver um problema real — no seu trabalho, no seu negócio, na vida de alguém próximo. Escolha uma ou duas ferramentas e vá fundo. O resto é ruído.",
       },
     ],
   },
@@ -127,7 +139,7 @@ export const SECTIONS: GuideSectionData[] = [
     blocks: [
       {
         kind: "paragraph",
-        text: "Cinco ferramentas formam a base. Não tente aprender tudo. Comece por elas.",
+        text: "O essencial é **Claude e Lovable** — com essas duas você já constrói. Mas vale conhecer as outras três da base (Supabase/Lovable Cloud, GitHub e Vercel) para entender onde os dados vivem, como o código fica versionado e onde o site é publicado. Comece pelas duas primeiras e expanda quando fizer sentido.",
       },
       {
         kind: "tools",
@@ -189,7 +201,7 @@ export const SECTIONS: GuideSectionData[] = [
       },
       {
         kind: "tools",
-        ids: ["resend", "twilio", "firecrawl", "lovable-ai", "lovable-payments"],
+        ids: ["lovable-cloud", "resend", "twilio", "firecrawl", "lovable-ai", "lovable-payments"],
       },
       {
         kind: "callout",
@@ -238,7 +250,7 @@ export const SECTIONS: GuideSectionData[] = [
     blocks: [
       {
         kind: "paragraph",
-        text: "**O que é Markdown:** formato de texto simples que vira documento formatado. Você escreve `## Título` e vira título. Arquivos `.md`. É o formato que a IA lê melhor.",
+        text: "**O que é Markdown:** é um formato de texto simples que vira documento formatado. Pense no Word ou Google Docs: você clica em \"Negrito\" e o texto fica negrito. No Markdown você digita `**negrito**` e ele aparece negrito quando renderizado. `# Título` vira título grande, `- item` vira lista. A diferença é que o arquivo é leve, abre em qualquer editor e — o mais importante — **a IA lê melhor Markdown do que qualquer outro formato**. Os arquivos terminam em `.md`.",
       },
       {
         kind: "paragraph",
@@ -249,37 +261,39 @@ export const SECTIONS: GuideSectionData[] = [
         kind: "code",
         lang: "text",
         text: `docs/
-  masterplan.md          ← visão geral, entidades, módulos, fluxos
-  RULES.md               ← como o código deve ser escrito
-  03-design.md           ← paleta, fontes, componentes, tom de voz
-  04-jornadas.md         ← jornadas dos usuários e mapa de navegação
-  05-dados.md            ← todas as tabelas, campos, relacionamentos
-  06-seguranca.md        ← RLS por perfil, LGPD, retenção
-  07-governanca.md       ← regras de negócio fixas e decisões
-  08-implementacao.md    ← ordem de build + tasks.md embutido
-  CLAUDE.md              ← arquivo raiz lido automaticamente
-  02-processos/
+  RULES.md               ← 0. como o código deve ser escrito
+  01-masterplan.md       ← 1. visão geral, entidades, módulos, fluxos
+  02-dados.md            ← 2. todas as tabelas, campos, relacionamentos
+  03-design.md           ← 3. paleta, fontes, componentes (após identidade)
+  04-seguranca.md        ← 4. RLS por perfil, LGPD, retenção
+  05-jornadas.md         ← 5. jornadas dos usuários e mapa de navegação
+  06-governanca.md       ← 6. regras de negócio fixas e decisões
+  07-implementacao.md    ← 7. ordem de build + tasks.md embutido
+  08-processos/          ← 8. sob demanda, antes de cada módulo
     auth.md
     condominios.md
     unidades-moradores.md
-    ...`,
+  CLAUDE/LOVABLE.md      ← arquivo raiz lido automaticamente`,
       },
-      { kind: "subheading", text: "Ordem de criação" },
+      { kind: "subheading", text: "O que cada documento faz" },
       {
         kind: "list",
-        ordered: true,
         items: [
-          "masterplan.md",
-          "RULES.md",
-          "05-dados.md (antes de qualquer build)",
-          "06-seguranca.md (antes de qualquer build)",
-          "04-jornadas.md",
-          "07-governanca.md",
-          "08-implementacao.md + tasks",
-          "CLAUDE.md",
-          "03-design.md (após criar identidade visual)",
-          "02-processos/[modulo].md (sob demanda, antes de cada módulo)",
+          "**RULES.md** — Regras de como o código deve ser escrito: padrões de nome, estrutura de pastas, o que nunca fazer. Sem isso o Lovable toma atalhos que viram bug semanas depois.",
+          "**01-masterplan.md** — Visão geral do produto: o que ele faz, para quem, quais módulos existem e como se conectam. É o mapa que o Lovable consulta para entender o todo antes de mexer numa parte.",
+          "**02-dados.md** — Todas as tabelas do banco, campos, tipos e relacionamentos. Define a fundação. Mudar depois custa caro, por isso vem antes do build.",
+          "**03-design.md** — Paleta, fontes, componentes, tom de voz. Criado depois da identidade visual estar pronta (Seção 10).",
+          "**04-seguranca.md** — Quem pode ver e fazer o quê (RLS por perfil), regras de LGPD e retenção de dados. Vem junto com `dados.md` porque segurança nasce com a tabela, não depois.",
+          "**05-jornadas.md** — Os caminhos que cada tipo de usuário percorre no sistema. Ajuda o Lovable a entender o contexto de cada tela.",
+          "**06-governanca.md** — Regras de negócio fixas e decisões já tomadas (ex.: \"comunicado é imutável depois de enviado\"). Evita que a IA reinvente regra a cada sessão.",
+          "**07-implementacao.md** — A ordem em que cada módulo será construído, com `tasks.md` embutido. É o cronograma que o Lovable executa passo a passo.",
+          "**08-processos/[modulo].md** — Especificação detalhada de um módulo específico (auth, condomínios, etc.). Cria sob demanda, antes de mandar o Lovable construir aquele módulo.",
+          "**CLAUDE/LOVABLE.md** — Arquivo raiz lido automaticamente em toda sessão. Resumo de onde estão as informações importantes nos outros documentos.",
         ],
+      },
+      {
+        kind: "paragraph",
+        text: "Cada documento desses faz com que o Lovable execute uma tarefa de cada vez, sem se perder. É igual ao ser humano: você não aprende tudo de uma vez nem executa um projeto inteiro num dia — você divide, aprende um pedaço, executa, valida e segue. Os documentos são a forma de impor esse ritmo à IA.",
       },
       {
         kind: "callout",
