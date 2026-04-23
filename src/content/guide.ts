@@ -113,7 +113,7 @@ export const SECTIONS: GuideSectionData[] = [
       {
         kind: "callout",
         variant: "case",
-        title: "Cristina Gestão Condominial",
+        title: "Amaro - Gestão Condominial",
         text: "A síndica precisava de múltiplos usuários, dados relacionados (condomínio → moradores → documentos → contratos), lógica automática (alerta de vencimento), histórico rastreável (log de ocorrências com valor jurídico) e portal público para condôminos. Claramente precisava de sistema.",
       },
     ],
