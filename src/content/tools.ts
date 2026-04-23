@@ -24,6 +24,13 @@ export const TOOLS: ToolData[] = [
       "Use o Lovable Cloud — não tente conectar o Supabase manualmente. Configurar tabelas SQL, RLS e relacionamentos é trabalho de DBA. O Lovable faz quando você descreve em português.",
   },
   {
+    id: "lovable-cloud",
+    name: "Lovable Cloud",
+    role: "Backend pronto sem configurar nada",
+    detail:
+      "Banco de dados, autenticação, storage e edge functions já integrados ao Lovable. Você descreve a tabela em português e ele cria com RLS na hora. É a forma mais simples de ter backend de verdade — sem precisar abrir o painel do Supabase.",
+  },
+  {
     id: "github",
     name: "GitHub",
     role: "Histórico do código",
