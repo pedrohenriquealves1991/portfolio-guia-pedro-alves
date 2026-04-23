@@ -14,7 +14,7 @@ export const SECTIONS: GuideSectionData[] = [
       },
       {
         kind: "paragraph",
-        text: "Este guia é pessoal, direto, sem motivacional. Quem fala é alguém que errou, aprendeu e documenta o que funciona. O caso real que atravessa o guia inteiro é o sistema **Cristina Gestão Condominial** — construído para a minha Dinda, síndica profissional em Curitiba.",
+        text: "Este guia é pessoal, direto, sem motivacional. Quem fala é alguém que errou, aprendeu e documenta o que funciona. O caso real que atravessa o guia inteiro é o sistema **Amaro - Gestão Condominial** — construído no Lovable para a minha Dinda, síndica profissional em Curitiba. Veja ao vivo: https://amarogestaocondominial.lovable.app/",
       },
       {
         kind: "paragraph",
@@ -113,7 +113,7 @@ export const SECTIONS: GuideSectionData[] = [
       {
         kind: "callout",
         variant: "case",
-        title: "Cristina Gestão Condominial",
+        title: "Amaro - Gestão Condominial",
         text: "A síndica precisava de múltiplos usuários, dados relacionados (condomínio → moradores → documentos → contratos), lógica automática (alerta de vencimento), histórico rastreável (log de ocorrências com valor jurídico) e portal público para condôminos. Claramente precisava de sistema.",
       },
     ],
@@ -649,7 +649,7 @@ claude`,
   {
     number: 20,
     slug: "caso-cristina",
-    title: "Caso real: Cristina Gestão Condominial",
+    title: "Caso real: Amaro - Gestão Condominial",
     path: "comum",
     blocks: [
       {
@@ -666,7 +666,7 @@ claude`,
     blocks: [
       {
         kind: "paragraph",
-        text: "Esta seção nasceu de uma revisão real do projeto Cristina Gestão Condominial feita pelo próprio Lovable depois do primeiro deploy. Ele identificou lacunas que nenhum documento havia coberto.",
+        text: "Esta seção nasceu de uma revisão real do projeto Amaro - Gestão Condominial feita pelo próprio Lovable depois do primeiro deploy. Ele identificou lacunas que nenhum documento havia coberto.",
       },
       {
         kind: "checklist",
