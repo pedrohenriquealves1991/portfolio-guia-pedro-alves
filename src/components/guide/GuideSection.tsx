@@ -7,6 +7,12 @@ import ChecklistCard from "./ChecklistCard";
 import CalloutCard from "./CalloutCard";
 import { getPrompt } from "@/content/prompts";
 import { renderInline } from "./inline";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface GuideSectionProps {
   section: GuideSectionData;
