@@ -82,7 +82,7 @@ export function buildGuideMarkdown(): string {
   lines.push("# Meu Guia Sincero de Vibe Coding");
   lines.push("");
   lines.push(
-    "_Por Pedro Alves · https://portfolio-guia-pedro-alves.lovable.app_"
+    "_Por Pedro Alves · https://portfolio-guia-pedro-alves.lovable.app/guia_"
   );
   lines.push("");
   lines.push(

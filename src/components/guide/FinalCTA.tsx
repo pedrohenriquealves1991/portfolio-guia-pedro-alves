@@ -1,19 +1,17 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Download, Mail, Share2 } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
-import DownloadGateDialog from "@/components/guide/DownloadGateDialog";
+import { downloadGuideMarkdown } from "@/lib/exportGuide";
 
 const FinalCTA = () => {
   const { lang } = useLanguage();
   const t = translations.finalCTA;
   const dl = translations.downloadGate;
-  const [dlOpen, setDlOpen] = useState(false);
 
   const handleShare = async () => {
-    const url = window.location.origin + "/";
+    const url = window.location.origin + "/guia";
     try {
       if (navigator.share) {
         await navigator.share({
@@ -49,7 +47,7 @@ const FinalCTA = () => {
           {dl.ctaBody[lang]}
         </p>
         <button
-          onClick={() => setDlOpen(true)}
+          onClick={downloadGuideMarkdown}
           className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background font-bold uppercase text-sm tracking-wider rounded-sm hover:bg-foreground/85 transition-colors"
         >
           <Download className="w-4 h-4" /> {dl.ctaButton[lang]}
@@ -80,7 +78,7 @@ const FinalCTA = () => {
             <Share2 className="w-4 h-4" /> {t.share[lang]}
           </button>
           <a
-            href={`mailto:pedro@regulamentei.com.br?subject=${encodeURIComponent(
+            href={`mailto:pedrophalves@gmail.com?subject=${encodeURIComponent(
               t.emailSubject[lang]
             )}`}
             className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-background/60 border-2 border-foreground text-foreground font-bold uppercase text-sm tracking-wider rounded-sm hover:bg-background/80 transition-colors"
@@ -90,7 +88,6 @@ const FinalCTA = () => {
         </div>
       </motion.div>
 
-      <DownloadGateDialog open={dlOpen} onOpenChange={setDlOpen} />
     </section>
   );
 };

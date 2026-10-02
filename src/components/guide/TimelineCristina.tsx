@@ -60,7 +60,7 @@ const errorCards: ErrorCardProps[] = [
   {
     title: "Arquitetura multi-tenant vs single-tenant",
     summary: "Premissa errada no masterplan criou rota pública de cadastro num sistema que era single-tenant.",
-    body: `Durante o Grupo 0 (autenticação), o sistema foi construído com uma tela pública /cadastro que permitia criar a conta da empresa. Funciona em sistemas multi-tenant — onde vários clientes diferentes usam o mesmo banco. Mas o SíndicaPro é single-tenant: cada instância do projeto é de uma empresa só.
+    body: `Durante o Grupo 0 (autenticação), o sistema foi construído com uma tela pública /cadastro que permitia criar a conta da empresa. Funciona em sistemas multi-tenant — onde vários clientes diferentes usam o mesmo banco. Mas o Amaro é single-tenant: cada instância do projeto é de uma empresa só.
 
 O bug latente: qualquer pessoa que descobrisse a URL /cadastro poderia criar uma segunda empresa no banco. A causa raiz foi uma premissa errada no masterplan — o sistema foi descrito como multi-tenant sem que essa decisão fosse explicitada.
 

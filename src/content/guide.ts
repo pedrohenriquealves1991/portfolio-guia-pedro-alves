@@ -540,7 +540,7 @@ export const SECTIONS: GuideSectionData[] = [
       {
         kind: "callout",
         variant: "case",
-        title: "Caso real — SíndicaPro",
+        title: "Caso real — Amaro",
         text: "O CHANGELOG não foi configurado desde o início. Resolver no meio da obra exigiu um prompt específico para criar o arquivo e reconstruir o histórico. Se você cometeu o mesmo erro, use o Prompt 6.",
       },
       {
@@ -769,8 +769,8 @@ claude`,
             a: "Com o Paddle (processador de pagamentos integrado do Lovable), você pode vender sem CNPJ inicialmente — ele funciona como marketplace e repassa os valores. Mas é altamente recomendável ter um CNPJ, pode ser MEI, escolhendo um CNAE relacionado a serviços de TI. Se o produto evoluir, existe um CNPJ especial para startups (Startup Simples). De todo modo, recomendo procurar um contador para estruturar corretamente desde o início.",
           },
           {
-            q: "Quanto tempo leva para construir um sistema como o SíndicaPro?",
-            a: "Entre planejamento, construção e testes aliados à rotina de quem já trabalha, no mínimo uma semana. O SíndicaPro levou cerca de 10 dias de trabalho efetivo, espalhados por 3 semanas considerando revisões e ajustes após feedback da usuária real. Quanto mais complexa a lógica de negócio e quanto mais integrações, mais tempo. Mas o Lovable acelera drasticamente — o mesmo sistema em código tradicional levaria 2-3 meses.",
+            q: "Quanto tempo leva para construir um sistema como o Amaro?",
+            a: "Entre planejamento, construção e testes aliados à rotina de quem já trabalha, no mínimo uma semana. O Amaro levou cerca de 10 dias de trabalho efetivo, espalhados por 3 semanas considerando revisões e ajustes após feedback da usuária real. Quanto mais complexa a lógica de negócio e quanto mais integrações, mais tempo. Mas o Lovable acelera drasticamente — o mesmo sistema em código tradicional levaria 2-3 meses.",
           },
           {
             q: "Consigo migrar para fora do Lovable depois?",
