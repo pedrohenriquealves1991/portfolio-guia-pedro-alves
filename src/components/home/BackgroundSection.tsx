@@ -20,7 +20,7 @@ const BackgroundSection = () => {
   const t = sections.background;
 
   return (
-    <section id="background" className="scroll-mt-20 border-t border-border px-5 py-16 md:px-8 md:py-24">
+    <section id="background" className="scroll-mt-20 border-t border-border px-5 py-12 md:px-8 md:py-16">
       <div className="mx-auto max-w-5xl">
         <SectionHeader label={t.label[lang]} title={t.title[lang]} />
 

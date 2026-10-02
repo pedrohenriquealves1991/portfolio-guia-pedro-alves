@@ -14,7 +14,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="scroll-mt-20 border-t border-border px-5 py-16 md:px-8 md:py-24">
+    <section id="contact" className="scroll-mt-20 border-t border-border px-5 py-12 md:px-8 md:py-16">
       <div className="mx-auto max-w-5xl">
         <p className="mb-3 font-mono text-xs uppercase tracking-[0.18em] text-brand">{t.label[lang]}</p>
         <h2 className="max-w-3xl text-2xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl">

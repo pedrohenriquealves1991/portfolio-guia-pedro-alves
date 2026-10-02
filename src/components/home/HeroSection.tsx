@@ -7,7 +7,7 @@ const HeroSection = () => {
   const { lang } = useLanguage();
 
   return (
-    <section className="px-5 pt-16 pb-12 md:px-8 md:pt-24 md:pb-16">
+    <section className="px-5 pt-14 pb-10 md:px-8 md:pt-20 md:pb-14">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -67,7 +67,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-3"
+          className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-3"
         >
           {hero.proof.map((p) => (
             <div key={p.value.en} className="bg-card px-5 py-5">

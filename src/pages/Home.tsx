@@ -4,7 +4,6 @@ import HeroSection from "@/components/home/HeroSection";
 import WorkSection from "@/components/home/WorkSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import BackgroundSection from "@/components/home/BackgroundSection";
-import WritingSection from "@/components/home/WritingSection";
 import ContactSection from "@/components/home/ContactSection";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -27,7 +26,6 @@ const Home = () => {
         <WorkSection />
         <ProcessSection />
         <BackgroundSection />
-        <WritingSection />
         <ContactSection />
       </main>
       <Footer />
