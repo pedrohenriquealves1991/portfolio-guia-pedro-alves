@@ -167,7 +167,12 @@ export const projects: Project[] = [
       en: "About 15 minutes saved per order (estimate). Now rolling out to the people who cover shipping.",
     },
     stack: ["Claude Code", "Lovable", "Supabase"],
-    imageAlt: { pt: "", en: "" },
+    image: "/work/cubage.png",
+    video: "/work/cubage.mp4",
+    imageAlt: {
+      pt: "Calculadora de cubagem lendo o PDF de um pedido e devolvendo caixas, peso e volumes",
+      en: "Cubage calculator reading an order PDF and returning boxes, weight and package count",
+    },
   },
 ];
 

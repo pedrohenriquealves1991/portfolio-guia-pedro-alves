@@ -34,7 +34,7 @@ const ProjectVideo = ({ src, poster, label, playLabel, pauseLabel }: Props) => {
   };
 
   return (
-    <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-muted lg:aspect-auto lg:min-h-[260px] lg:border-b-0 lg:border-r">
+    <div className="relative flex items-center overflow-hidden border-b border-border bg-muted lg:border-b-0 lg:border-r">
       <video
         ref={ref}
         src={src}
@@ -46,7 +46,7 @@ const ProjectVideo = ({ src, poster, label, playLabel, pauseLabel }: Props) => {
         aria-label={label}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
-        className="absolute inset-0 h-full w-full object-cover object-left-top"
+        className="block h-auto w-full"
       />
       <button
         type="button"

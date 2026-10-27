@@ -37,7 +37,7 @@ const WorkSection = () => {
               transition={{ duration: 0.4, delay: i * 0.03 }}
               className="overflow-hidden rounded-lg border border-border bg-card"
             >
-              <div className={`grid grid-cols-1 ${p.image || p.video ? "lg:grid-cols-[2fr_3fr]" : ""}`}>
+              <div className={`grid grid-cols-1 ${p.image || p.video ? "lg:grid-cols-2" : ""}`}>
                 {p.video ? (
                   <ProjectVideo
                     src={p.video}
@@ -51,14 +51,14 @@ const WorkSection = () => {
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative block aspect-[16/10] overflow-hidden border-b border-border bg-muted lg:aspect-auto lg:min-h-[260px] lg:border-b-0 lg:border-r"
+                    className="group flex items-center overflow-hidden border-b border-border bg-muted lg:border-b-0 lg:border-r"
                     aria-label={`${t.open[lang]}: ${projectNames[p.id][lang]}`}
                   >
                     <img
                       src={p.image}
                       alt={p.imageAlt[lang]}
                       loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover object-left-top transition-transform duration-500 group-hover:scale-[1.02]"
+                      className="block h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   </a>
                 )}
