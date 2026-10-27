@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import SiteNav from "@/components/home/SiteNav";
 import HeroSection from "@/components/home/HeroSection";
 import WorkSection from "@/components/home/WorkSection";
-import ProcessSection from "@/components/home/ProcessSection";
 import BackgroundSection from "@/components/home/BackgroundSection";
 import ContactSection from "@/components/home/ContactSection";
 import Footer from "@/components/Footer";
@@ -14,8 +13,8 @@ const Home = () => {
   useEffect(() => {
     document.title =
       lang === "pt"
-        ? "Pedro Alves · Qualidade e regulatório de dispositivos médicos · fluxos com IA"
-        : "Pedro Alves · Medical device quality & regulatory · AI workflows";
+        ? "Pedro Alves · Qualidade e regulatório · fluxos com IA"
+        : "Pedro Alves · Quality & regulatory · AI workflows";
   }, [lang]);
 
   return (
@@ -24,7 +23,6 @@ const Home = () => {
       <main>
         <HeroSection />
         <WorkSection />
-        <ProcessSection />
         <BackgroundSection />
         <ContactSection />
       </main>

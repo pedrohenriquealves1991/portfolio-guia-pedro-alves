@@ -5,7 +5,6 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const links: { id: string; key: keyof typeof nav }[] = [
   { id: "work", key: "work" },
-  { id: "process", key: "process" },
   { id: "background", key: "background" },
   { id: "contact", key: "contact" },
 ];
