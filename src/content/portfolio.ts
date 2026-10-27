@@ -23,8 +23,8 @@ export const hero = {
     en: "AI & Automation Specialist · Quality and regulatory background",
   },
   lead: {
-    pt: "Construo ferramentas internas que tiram o trabalho manual das rotinas de backoffice e governança, e ferramentas que ajudam o time comercial a vender mais: qualificação de fornecedores, análise de licitações, documentos comerciais e captação de leads. Sete anos em qualidade e regulatório de dispositivos médicos.",
-    en: "I build internal tools that take manual work out of back-office and governance routines, and tools that help sales teams sell more: supplier qualification, tender analysis, commercial documents and lead capture. Seven years in medical-device quality and regulatory affairs.",
+    pt: "Construo ferramentas internas que tiram o trabalho manual das rotinas de backoffice e governança e ajudam o time comercial a vender mais. Exemplos recentes: qualificação de fornecedores, análise de licitações, documentos comerciais e captação de leads. Sete anos em qualidade e regulatório de dispositivos médicos.",
+    en: "I build internal tools that take manual work out of back-office and governance routines and help sales teams sell more. Recent examples: supplier qualification, tender analysis, commercial documents and lead capture. Seven years in medical-device quality and regulatory affairs.",
   },
   facts: {
     pt: [
