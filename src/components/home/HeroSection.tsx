@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Download, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { hero, CV_PATH, EMAIL, LINKEDIN } from "@/content/portfolio";
+import { hero, EMAIL, LINKEDIN } from "@/content/portfolio";
 
 const HeroSection = () => {
   const { lang } = useLanguage();
@@ -36,14 +36,6 @@ const HeroSection = () => {
           </ul>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={CV_PATH}
-              download
-              className="inline-flex items-center gap-2 rounded-md bg-foreground px-5 py-3 text-sm font-semibold text-background hover:bg-foreground/90 transition-colors"
-            >
-              <Download className="h-4 w-4" />
-              {hero.ctaCv[lang]}
-            </a>
             <a
               href={LINKEDIN}
               target="_blank"

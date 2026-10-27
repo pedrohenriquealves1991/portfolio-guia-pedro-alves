@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { Download } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { nav, CV_PATH } from "@/content/portfolio";
+import { nav } from "@/content/portfolio";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const links: { id: string; key: keyof typeof nav }[] = [
@@ -40,14 +39,6 @@ const SiteNav = () => {
 
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          <a
-            href={CV_PATH}
-            download
-            className="inline-flex items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs font-semibold text-background hover:bg-foreground/90 transition-colors"
-          >
-            <Download className="h-3.5 w-3.5" />
-            {nav.cv[lang]}
-          </a>
         </div>
       </div>
     </header>
