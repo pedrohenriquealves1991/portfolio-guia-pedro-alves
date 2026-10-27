@@ -54,6 +54,7 @@ export interface Project {
   url?: string;
   urlNote?: L;
   image?: string;
+  video?: string;
   imageAlt: L;
 }
 
@@ -67,7 +68,7 @@ export const projectNames: Record<string, L> = {
     pt: "Qualificação de fornecedores",
     en: "Supplier qualification platform",
   },
-  regulamentei: { pt: "Regulamentei SGQ", en: "Regulamentei SGQ" },
+  cubage: { pt: "Calculadora de cubagem", en: "Shipping cubage calculator" },
 };
 
 export const projects: Project[] = [
@@ -116,6 +117,7 @@ export const projects: Project[] = [
     stack: ["Claude", "Lovable", "Supabase", "CRM integration"],
     url: "https://angiolux.com.br/consulta-licitacao",
     image: "/work/tenders.png",
+    video: "/work/tenders.mp4",
     imageAlt: {
       pt: "Formulário público da IA de Pregões no site da Angiolux",
       en: "Public form of the tender-matching tool on the Angiolux website",
@@ -141,31 +143,30 @@ export const projects: Project[] = [
     stack: ["Lovable", "Supabase", "Automation", "CRM integration"],
     url: "https://angiolux.com.br/qualificacao",
     image: "/work/suppliers.png",
+    video: "/work/suppliers.mp4",
     imageAlt: {
       pt: "Assistente de qualificação de agentes em seis etapas",
       en: "Six-step agent qualification wizard",
     },
   },
   {
-    id: "regulamentei",
-    status: "paused",
-    statusLabel: { pt: "Pausado · em reconstrução", en: "Paused · being rebuilt" },
-    role: { pt: "Fundador", en: "Founder" },
+    id: "cubage",
+    status: "production",
+    statusLabel: { pt: "Em produção · em implantação", en: "In production · rolling out" },
+    role: { pt: "Catalogação, especificação e build · Angiolux", en: "Cataloguing, spec and build · Angiolux" },
     problem: {
-      pt: "Distribuidores pequenos precisam de um sistema da qualidade alinhado à ISO 13485 para as RDC 665/2022 e 751/2022, mas operam em papel e planilha.",
-      en: "Small device distributors need an ISO 13485-aligned quality system for RDC 665/2022 and 751/2022, but run it on paper and spreadsheets.",
+      pt: "Toda cotação de frete precisa do número de volumes e do peso do pedido. A equipe calculava por tentativa e erro, montando as caixas na mão: cerca de 15 minutos por pedido, em uns 50 pedidos por mês.",
+      en: "Every freight quote needs the order's package count and weight. The team worked them out by trial and error, fitting products into boxes by hand: about 15 minutes per order, on roughly 50 orders a month.",
     },
     built: {
-      pt: "Validado com protótipo navegável e conversas de descoberta; build iniciado: controle de documentos, aprovações, CAPA, inspeções, auditorias e procedimentos em PDF.",
-      en: "Validated with a clickable prototype and discovery calls; build started: document control, approvals, CAPA, inspections, audits and PDF procedures.",
+      pt: "Primeiro catalogei as dimensões e o peso de todos os produtos e de todas as caixas secundárias e terciárias padronizadas. Sobre esse catálogo, um app lê o PDF do pedido, mostra os itens extraídos para conferência e devolve as caixas, o peso total e os volumes, em texto pronto para a transportadora do cliente.",
+      en: "First I catalogued the dimensions and weight of every product and every standard secondary and tertiary box. On that catalogue, a web app reads the order PDF, shows the extracted items for confirmation and returns which boxes to use, total weight and package count, as text ready for the customer's carrier.",
     },
     outcome: {
-      pt: "Pausado após a saída do desenvolvedor; em reconstrução com IA, especificação primeiro. Prospects querem comprar quando estiver rodando; ainda sem clientes pagantes.",
-      en: "Paused after losing the developer; being rebuilt spec-first with AI. Prospects asked to buy once it runs; no paying customers yet.",
+      pt: "Cerca de 15 minutos economizados por pedido (estimativa). Em implantação com quem cobre a expedição.",
+      en: "About 15 minutes saved per order (estimate). Now rolling out to the people who cover shipping.",
     },
-    stack: ["Lovable", "Supabase", "Claude Code"],
-    url: "https://regulamentei.com.br",
-    urlNote: { pt: "site em manutenção", en: "site in maintenance" },
+    stack: ["Claude Code", "Lovable", "Supabase"],
     imageAlt: { pt: "", en: "" },
   },
 ];
@@ -173,14 +174,6 @@ export const projects: Project[] = [
 export const smallerWork = {
   title: { pt: "Automações menores", en: "Smaller automations" },
   items: [
-    {
-      title: { pt: "Calculadora de cubagem", en: "Shipping cubage calculator" },
-      body: {
-        pt: "Cola o pedido do cliente; saem caixas, peso total e volumes para a cotação de frete.",
-        en: "Paste the customer order; get boxes, total weight and package count for the freight quote.",
-      },
-      metric: { pt: "~15 min a menos por pedido", en: "~15 min saved per order" },
-    },
     {
       title: { pt: "Gerador de cartas de comercialização", en: "Commercial letter generator" },
       body: {
@@ -250,8 +243,8 @@ export const sections = {
         orgNote: { pt: "consultoria regulatória", en: "regulatory consulting" },
         role: { pt: "Fundador", en: "Founder" },
         body: {
-          pt: "Licenciamento ANVISA e implantação de sistemas da qualidade. Origem do Regulamentei SGQ e do Mirada Search AI.",
-          en: "ANVISA licensing and quality-system set-up. Where Regulamentei SGQ and Mirada Search AI started.",
+          pt: "Licenciamento ANVISA e implantação de sistemas da qualidade para empresas clientes. Origem do Mirada Search AI.",
+          en: "ANVISA licensing and quality-system set-up for client companies. Where Mirada Search AI started.",
         },
       },
       {

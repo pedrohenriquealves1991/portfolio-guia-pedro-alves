@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { projects, projectNames, sections, smallerWork, type ProjectStatus } from "@/content/portfolio";
 import SectionHeader from "./SectionHeader";
+import ProjectVideo from "./ProjectVideo";
 
 const statusStyles: Record<ProjectStatus, string> = {
   live: "bg-brand/10 text-brand ring-brand/30",
@@ -36,8 +37,16 @@ const WorkSection = () => {
               transition={{ duration: 0.4, delay: i * 0.03 }}
               className="overflow-hidden rounded-lg border border-border bg-card"
             >
-              <div className={`grid grid-cols-1 ${p.image ? "lg:grid-cols-[2fr_3fr]" : ""}`}>
-                {p.image && (
+              <div className={`grid grid-cols-1 ${p.image || p.video ? "lg:grid-cols-[2fr_3fr]" : ""}`}>
+                {p.video ? (
+                  <ProjectVideo
+                    src={p.video}
+                    poster={p.image}
+                    label={p.imageAlt[lang]}
+                    playLabel={lang === "pt" ? "Reproduzir vídeo" : "Play video"}
+                    pauseLabel={lang === "pt" ? "Pausar vídeo" : "Pause video"}
+                  />
+                ) : p.image && (
                   <a
                     href={p.url}
                     target="_blank"
