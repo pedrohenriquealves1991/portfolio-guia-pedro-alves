@@ -14,27 +14,27 @@ export const nav = {
 } satisfies Record<string, L>;
 
 export const hero = {
-  eyebrow: {
-    pt: "Qualidade e regulatório · fluxos com IA",
-    en: "Quality & regulatory · AI workflows",
-  },
   title: {
-    pt: "Especialista em qualidade e regulatório que constrói fluxos com IA.",
-    en: "Quality and regulatory specialist who builds AI workflows.",
+    pt: "Pedro Alves",
+    en: "Pedro Alves",
+  },
+  subtitle: {
+    pt: "AI & Automation Specialist · Experiência em qualidade e regulatório",
+    en: "AI & Automation Specialist · Quality and regulatory background",
   },
   lead: {
-    pt: "Farmacêutico com sete anos em dispositivos médicos, da fabricação à distribuição. Mapeio o processo com quem o executa, escrevo a especificação e construo a ferramenta com Claude Code, Lovable e Supabase.",
-    en: "Pharmacist with seven years in medical devices, from manufacturing to distribution. I map a process with the people who run it, write the spec and build the tool with Claude Code, Lovable and Supabase.",
+    pt: "Construo ferramentas internas que tiram o trabalho manual das rotinas de backoffice e governança, e ferramentas que ajudam o time comercial a vender mais: qualificação de fornecedores, análise de licitações, documentos comerciais e captação de leads. Sete anos em qualidade e regulatório de dispositivos médicos.",
+    en: "I build internal tools that take manual work out of back-office and governance routines, and tools that help sales teams sell more: supplier qualification, tender analysis, commercial documents and lead capture. Seven years in medical-device quality and regulatory affairs.",
   },
   facts: {
     pt: [
       "Porto Alegre, Brasil",
-      "Aberto a relocação na Europa",
+      "Aberto a relocação",
       "Português nativo · Inglês C1 · Espanhol leitura",
     ],
     en: [
       "Porto Alegre, Brazil",
-      "Open to relocation in Europe",
+      "Open to relocation",
       "Portuguese native · English C1 · Spanish reading",
     ],
   } satisfies LList,
@@ -203,7 +203,10 @@ export const smallerWork = {
         pt: "Substituiu o Linktree e captura o contato antes do download.",
         en: "Replaced Linktree and captures contact data before download.",
       },
-      metric: { pt: "Leads direto na base", en: "Leads straight into the CRM" },
+      metric: {
+        pt: "Leads orgânicos que o comercial converteu em vendas",
+        en: "Organic leads that sales turned into orders",
+      },
     },
   ],
 };
@@ -341,8 +344,8 @@ export const sections = {
       en: "Looking for roles where domain expertise and hands-on building meet.",
     },
     body: {
-      pt: "Automação e enablement com IA, qualidade e regulatório, melhoria de processos. Em inglês ou português, na Europa ou remoto.",
-      en: "AI automation and enablement, quality and regulatory, process improvement. In English or Portuguese, in Europe or remote.",
+      pt: "Automação e enablement com IA, backoffice e governança, apoio ao comercial, qualidade e regulatório. Em inglês ou português, presencial com relocação ou remoto.",
+      en: "AI automation and enablement, back-office and governance, sales enablement, quality and regulatory. In English or Portuguese, on site with relocation or remote.",
     },
   },
   footer: {

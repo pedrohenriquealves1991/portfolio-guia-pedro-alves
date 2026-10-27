@@ -13,13 +13,13 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-brand">
-            {hero.eyebrow[lang]}
-          </p>
-
           <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-foreground md:text-6xl">
             {hero.title[lang]}
           </h1>
+
+          <p className="mt-4 text-lg font-medium text-muted-foreground md:text-2xl">
+            {hero.subtitle[lang]}
+          </p>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             {hero.lead[lang]}
