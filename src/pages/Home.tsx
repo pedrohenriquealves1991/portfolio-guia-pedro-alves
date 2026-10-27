@@ -11,11 +11,8 @@ const Home = () => {
   const { lang } = useLanguage();
 
   useEffect(() => {
-    document.title =
-      lang === "pt"
-        ? "Pedro Alves · Qualidade e regulatório · fluxos com IA"
-        : "Pedro Alves · Quality & regulatory · AI workflows";
-  }, [lang]);
+    document.title = "Pedro Alves · AI & Automation Specialist";
+  }, []);
 
   return (
     <div className="min-h-screen">
