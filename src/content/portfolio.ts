@@ -3,7 +3,6 @@ import type { Language } from "@/i18n/translations";
 export type L = Record<Language, string>;
 export type LList = Record<Language, string[]>;
 
-export const CV_PATH = "/Pedro_Alves_CV.pdf";
 export const EMAIL = "pedrophalves@gmail.com";
 export const LINKEDIN = "https://linkedin.com/in/pedrophalves";
 export const GITHUB = "https://github.com/pedrohenriquealves1991";
@@ -13,37 +12,33 @@ export const nav = {
   process: { pt: "Como trabalho", en: "How I work" },
   background: { pt: "Trajetória", en: "Background" },
   contact: { pt: "Contato", en: "Contact" },
-  cv: { pt: "Currículo", en: "CV" },
 } satisfies Record<string, L>;
 
 export const hero = {
   eyebrow: {
-    pt: "Qualidade e regulatório de dispositivos médicos · fluxos com IA",
-    en: "Medical device quality & regulatory · AI workflows",
+    pt: "Qualidade e regulatório · fluxos com IA",
+    en: "Quality & regulatory · AI workflows",
   },
   title: {
-    pt: "Especialista em qualidade e regulatório de dispositivos médicos que constrói as próprias ferramentas de IA.",
-    en: "Medtech quality and regulatory expert who builds the AI workflows himself.",
+    pt: "Especialista em qualidade e regulatório que constrói fluxos com IA.",
+    en: "Quality and regulatory specialist who builds AI workflows.",
   },
   lead: {
-    pt: "Farmacêutico com dez anos na cadeia de dispositivos médicos: fabricante, exportador, importador e distribuidor, classes I a IV. Desde 2024 mapeio o processo com quem o executa, escrevo a especificação e entrego a ferramenta com Claude Code, Lovable e Supabase.",
-    en: "Pharmacist with ten years across the medical-device chain: manufacturer, exporter, importer and distributor, Class I to IV. Since 2024 I map a process with the people who run it, write the specification and ship the tool with Claude Code, Lovable and Supabase.",
+    pt: "Farmacêutico com sete anos na cadeia de dispositivos médicos: fabricante, exportador, importador e distribuidor, classes I a IV. Desde 2024 mapeio o processo com quem o executa, escrevo a especificação e entrego a ferramenta com Claude Code, Lovable e Supabase.",
+    en: "Pharmacist with seven years across the medical-device chain: manufacturer, exporter, importer and distributor, Class I to IV. Since 2024 I map a process with the people who run it, write the specification and ship the tool with Claude Code, Lovable and Supabase.",
   },
   facts: {
     pt: [
       "Porto Alegre, Brasil",
-      "Aberto a relocação · Berlim",
-      "Elegível ao EU Blue Card",
+      "Aberto a relocação na Europa",
       "Português nativo · Inglês C1 · Espanhol leitura",
     ],
     en: [
       "Porto Alegre, Brazil",
-      "Open to relocation · Berlin",
-      "EU Blue Card eligible",
+      "Open to relocation in Europe",
       "Portuguese native · English C1 · Spanish reading",
     ],
   } satisfies LList,
-  ctaCv: { pt: "Baixar currículo (PDF)", en: "Download CV (PDF)" },
   ctaLinkedin: { pt: "LinkedIn", en: "LinkedIn" },
   ctaEmail: { pt: "E-mail", en: "Email" },
   proof: [
@@ -62,10 +57,10 @@ export const hero = {
       },
     },
     {
-      value: { pt: "No ar, pago", en: "Live, paid" },
+      value: { pt: "~15 min", en: "~15 min" },
       label: {
-        pt: "Mirada Search AI, busca na base Anvisa",
-        en: "Mirada Search AI, search over the Anvisa database",
+        pt: "economizados por pedido com a calculadora de cubagem",
+        en: "saved per shipping order with the cubage calculator",
       },
     },
   ],
@@ -105,19 +100,19 @@ export const projects: Project[] = [
   {
     id: "mirada",
     status: "live",
-    statusLabel: { pt: "No ar · produto pago", en: "Live · paid product" },
+    statusLabel: { pt: "No ar · em validação de mercado", en: "Live · in market validation" },
     role: { pt: "Fundador · produto e build", en: "Founder · product and build" },
     problem: {
       pt: "Os dados de dispositivos médicos da Anvisa ficam espalhados em portais. Descobrir quem detém um registro, quem importa um produto e se ele ainda vale levava horas.",
       en: "Anvisa device data is scattered across portals. Finding who holds a registration, who imports a product and whether it is still valid took hours.",
     },
     built: {
-      pt: "Toda a base da Anvisa numa busca, atualizada diariamente, com enriquecimento de empresas via Firecrawl, login Google, 7 dias de teste e plano pago. PRD, build em Lovable e Supabase, replays do LogRocket para corrigir o abandono no cadastro.",
-      en: "The full Anvisa database in one search, updated daily, with company enrichment via Firecrawl, Google sign-in, a 7-day trial and a paid plan. PRD, build on Lovable and Supabase, LogRocket replays to fix sign-up drop-off.",
+      pt: "Toda a base da Anvisa numa busca, atualizada diariamente, com enriquecimento de empresas via Firecrawl, login Google e 7 dias de teste. PRD, build em Lovable e Supabase, replays do LogRocket para corrigir o abandono no cadastro.",
+      en: "The full Anvisa database in one search, updated daily, with company enrichment via Firecrawl, Google sign-in and a 7-day trial. PRD, build on Lovable and Supabase, LogRocket replays to fix sign-up drop-off.",
     },
     outcome: {
-      pt: "Horas de pesquisa viraram segundos. Usado por compradores hospitalares, distribuidores e fabricantes estrangeiros buscando parceiros locais.",
-      en: "Hours of research became seconds. Used by hospital buyers, distributors and foreign manufacturers looking for local partners.",
+      pt: "Horas de pesquisa em portais viram uma busca só. Lançado no LinkedIn; em validação de mercado, ainda sem clientes pagantes.",
+      en: "Hours of portal research become a single search. Launched on LinkedIn; now in market validation, no paying customers yet.",
     },
     stack: ["Lovable", "Supabase", "Firecrawl", "LogRocket", "Claude Code"],
     url: "https://miradasearch.com",
@@ -130,7 +125,7 @@ export const projects: Project[] = [
   {
     id: "tenders",
     status: "production",
-    statusLabel: { pt: "Em produção · uso diário", en: "In production · daily use" },
+    statusLabel: { pt: "Em produção", en: "In production" },
     role: { pt: "Especificação, build e implantação · Angiolux", en: "Spec, build and rollout · Angiolux" },
     problem: {
       pt: "Pregões listam dezenas de itens em texto livre. O comercial gastava horas por pregão cruzando itens com o catálogo e ainda deixava passar incompatibilidades.",
@@ -141,8 +136,8 @@ export const projects: Project[] = [
       en: "An agent reads the tender, matches each item against the catalogue via API and posts a structured report with flagged errors in the CRM. A weekday monitor scans the official gazette and two public hospital-group portals and sends only relevant tenders.",
     },
     outcome: {
-      pt: "A fase de pesquisa sumiu; a equipe começa na estratégia de preço. Menos erros nas propostas, adoção imediata.",
-      en: "Research phase gone; the team starts at pricing. Fewer bidding errors, immediate adoption.",
+      pt: "A etapa manual de cruzamento acabou: o relatório aponta incompatibilidades antes do lance e a equipe começa pela precificação.",
+      en: "The manual matching step is gone: the report flags mismatches before the bid, so the team starts at pricing.",
     },
     stack: ["Claude", "Lovable", "Supabase", "CRM integration"],
     url: "https://angiolux.com.br/consulta-licitacao",
@@ -166,8 +161,8 @@ export const projects: Project[] = [
       en: "Self-service onboarding wizard, automatic detection of expiring documents, renewal requests with upload links, records updated on submission, linked to the CRM.",
     },
     outcome: {
-      pt: "De cerca de uma semana por mês para quatro horas. Metade dos fornecedores já sobe os próprios documentos.",
-      en: "From roughly a week a month to about four hours. Half of the suppliers now upload their own documents.",
+      pt: "De cerca de uma semana por mês para quatro horas. 50 a 60% dos fornecedores já sobe os próprios documentos.",
+      en: "From roughly a week a month to about four hours. 50 to 60% of suppliers now upload their own documents.",
     },
     stack: ["Lovable", "Supabase", "Automation", "CRM integration"],
     url: "https://angiolux.com.br/qualificacao",
@@ -204,6 +199,14 @@ export const projects: Project[] = [
 export const smallerWork = {
   title: { pt: "Automações menores", en: "Smaller automations" },
   items: [
+    {
+      title: { pt: "Calculadora de cubagem", en: "Shipping cubage calculator" },
+      body: {
+        pt: "Cola o pedido do cliente; saem caixas, peso total e volumes para a cotação de frete.",
+        en: "Paste the customer order; get boxes, total weight and package count for the freight quote.",
+      },
+      metric: { pt: "~15 min a menos por pedido", en: "~15 min saved per order" },
+    },
     {
       title: { pt: "Gerador de cartas de comercialização", en: "Commercial letter generator" },
       body: {
@@ -254,29 +257,29 @@ export const sections = {
       {
         title: { pt: "Mapear com quem executa", en: "Map it with the people who run it" },
         body: {
-          pt: "Acompanho a rotina, reúno documentos e exceções e combino o que é “pronto” antes de abrir qualquer ferramenta.",
-          en: "Shadow the routine, collect documents and exceptions, agree on what “done” means before opening any tool.",
+          pt: "Acompanho a rotina e reúno documentos e exceções.",
+          en: "Shadow the routine and collect documents and exceptions.",
         },
       },
       {
         title: { pt: "Escrever a especificação", en: "Write the specification" },
         body: {
-          pt: "PRD, modelo de dados, acesso por perfil, regras de negócio e plano em grupos. A IA lê isso antes de escrever código.",
-          en: "PRD, data model, access per role, business rules and a plan in groups. The AI reads these before writing code.",
+          pt: "PRD, dados, perfis e regras que a IA lê antes do código.",
+          en: "PRD, data, roles and rules the AI reads before coding.",
         },
       },
       {
         title: { pt: "Construir em grupos verificáveis", en: "Build in verified groups" },
         body: {
-          pt: "Cada grupo é publicado e testado com dados reais; o arquivo de regras cresce a cada bug.",
-          en: "Each group ships and is tested on real data; the rules file grows with every bug.",
+          pt: "Cada grupo é publicado e testado com dados reais.",
+          en: "Each group ships and is tested on real data.",
         },
       },
       {
         title: { pt: "Observar o uso real", en: "Watch real usage" },
         body: {
-          pt: "Replays de sessão, dúvidas de suporte e adoção decidem a próxima iteração.",
-          en: "Session replays, support questions and adoption decide the next iteration.",
+          pt: "O uso real decide a próxima iteração.",
+          en: "Real usage decides the next iteration.",
         },
       },
     ],
@@ -284,12 +287,12 @@ export const sections = {
   background: {
     label: { pt: "Trajetória", en: "Background" },
     title: {
-      pt: "Dez anos dentro de qualidade e regulatório de dispositivos médicos.",
-      en: "Ten years inside medical-device quality and regulatory.",
+      pt: "Sete anos em qualidade e regulatório de dispositivos médicos.",
+      en: "Seven years in medical-device quality and regulatory.",
     },
     timeline: [
       {
-        period: { pt: "2021 – hoje", en: "2021 – present" },
+        period: { pt: "2021 a hoje", en: "2021 to present" },
         org: "Angiolux",
         orgNote: { pt: "importador e distribuidor", en: "importer and distributor" },
         role: {
@@ -302,7 +305,7 @@ export const sections = {
         },
       },
       {
-        period: { pt: "2024 – hoje", en: "2024 – present" },
+        period: { pt: "2024 a hoje", en: "2024 to present" },
         org: "Regulamentei",
         orgNote: { pt: "consultoria regulatória", en: "regulatory consulting" },
         role: { pt: "Fundador", en: "Founder" },
@@ -312,7 +315,7 @@ export const sections = {
         },
       },
       {
-        period: { pt: "2018 – 2021", en: "2018 – 2021" },
+        period: { pt: "2018 a 2021", en: "2018 to 2021" },
         org: "Fleury · Kley Hertz · Panvel",
         orgNote: { pt: "diagnóstico, farmacêutica e varejo", en: "diagnostics, pharma and pharmacy retail" },
         role: { pt: "Assuntos regulatórios e farmácia", en: "Regulatory affairs and pharmacy roles" },
@@ -322,7 +325,7 @@ export const sections = {
         },
       },
       {
-        period: { pt: "2016 – 2018", en: "2016 – 2018" },
+        period: { pt: "2016 a 2018", en: "2016 to 2018" },
         org: "Vision Hitech",
         orgNote: { pt: "fabricante, 16 pessoas", en: "manufacturer, 16 people" },
         role: {
@@ -338,12 +341,12 @@ export const sections = {
     educationLabel: { pt: "Formação", en: "Education" },
     education: {
       pt: [
-        "Farmácia, UFRGS, 2009 – 2016",
-        "Pós-graduação em Assuntos Regulatórios, Instituto Racine, 2018 – 2019",
+        "Farmácia, UFRGS, 2009 a 2016",
+        "Pós-graduação em Assuntos Regulatórios, Instituto Racine, 2018 a 2019",
       ],
       en: [
-        "Bachelor's in Pharmacy, UFRGS, 2009 – 2016",
-        "Postgraduate in Regulatory Affairs, Instituto Racine, 2018 – 2019",
+        "Bachelor's in Pharmacy, UFRGS, 2009 to 2016",
+        "Postgraduate in Regulatory Affairs, Instituto Racine, 2018 a 2019",
       ],
     } satisfies LList,
     domainLabel: { pt: "Domínio", en: "Domain" },
@@ -401,12 +404,12 @@ export const sections = {
       en: "Looking for roles where domain expertise and hands-on building meet.",
     },
     body: {
-      pt: "Transformação de P&D e qualidade em medtech, fluxos regulatórios com IA, entrega junto ao cliente. Em inglês ou português, em Berlim ou remoto.",
-      en: "Medtech R&D and quality transformation, AI-enabled regulatory workflows, customer-facing delivery. In English or Portuguese, in Berlin or remote.",
+      pt: "Automação e enablement com IA, qualidade e regulatório, melhoria de processos com IA. Em inglês ou português, na Europa ou remoto.",
+      en: "AI automation and enablement, quality and regulatory, process improvement with AI. In English or Portuguese, in Europe or remote.",
     },
     location: {
-      pt: "Porto Alegre, Brasil · aberto a relocação para Berlim · elegível ao EU Blue Card",
-      en: "Porto Alegre, Brazil · open to relocation to Berlin · EU Blue Card eligible",
+      pt: "Porto Alegre, Brasil · aberto a relocação na Europa",
+      en: "Porto Alegre, Brazil · open to relocation in Europe",
     },
   },
   footer: {
