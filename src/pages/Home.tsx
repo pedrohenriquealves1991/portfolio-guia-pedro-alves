@@ -5,10 +5,8 @@ import WorkSection from "@/components/home/WorkSection";
 import BackgroundSection from "@/components/home/BackgroundSection";
 import ContactSection from "@/components/home/ContactSection";
 import Footer from "@/components/Footer";
-import { useLanguage } from "@/i18n/LanguageContext";
 
 const Home = () => {
-  const { lang } = useLanguage();
 
   useEffect(() => {
     document.title = "Pedro Alves · AI & Automation Specialist";
