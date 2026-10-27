@@ -203,7 +203,10 @@ export const smallerWork = {
         pt: "Substituiu o Linktree e captura o contato antes do download.",
         en: "Replaced Linktree and captures contact data before download.",
       },
-      metric: { pt: "Leads direto na base", en: "Leads straight into the CRM" },
+      metric: {
+        pt: "Leads orgânicos que o comercial converteu em vendas",
+        en: "Organic leads that sales turned into orders",
+      },
     },
   ],
 };
