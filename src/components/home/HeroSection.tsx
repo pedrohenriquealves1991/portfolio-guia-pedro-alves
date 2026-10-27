@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { Linkedin, Mail } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { hero, EMAIL, LINKEDIN } from "@/content/portfolio";
+import { hero } from "@/content/portfolio";
 
 const HeroSection = () => {
   const { lang } = useLanguage();
@@ -35,41 +34,8 @@ const HeroSection = () => {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={LINKEDIN}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40 transition-colors"
-            >
-              <Linkedin className="h-4 w-4" />
-              {hero.ctaLinkedin[lang]}
-            </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40 transition-colors"
-            >
-              <Mail className="h-4 w-4" />
-              {hero.ctaEmail[lang]}
-            </a>
-          </div>
         </motion.div>
 
-        <motion.dl
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-3"
-        >
-          {hero.proof.map((p) => (
-            <div key={p.value.en} className="bg-card px-5 py-5">
-              <dt className="text-xs text-muted-foreground">{p.label[lang]}</dt>
-              <dd className="mt-1 text-xl font-semibold tracking-tight text-foreground md:text-2xl">
-                {p.value[lang]}
-              </dd>
-            </div>
-          ))}
-        </motion.dl>
       </div>
     </section>
   );

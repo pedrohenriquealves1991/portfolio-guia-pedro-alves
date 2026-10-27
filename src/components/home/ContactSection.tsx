@@ -36,7 +36,6 @@ const ContactSection = () => {
           ))}
         </ul>
 
-        <p className="mt-6 text-sm text-muted-foreground">{t.location[lang]}</p>
       </div>
     </section>
   );

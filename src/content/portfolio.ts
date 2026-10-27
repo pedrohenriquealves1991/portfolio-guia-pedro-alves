@@ -9,7 +9,6 @@ export const GITHUB = "https://github.com/pedrohenriquealves1991";
 
 export const nav = {
   work: { pt: "Projetos", en: "Work" },
-  process: { pt: "Como trabalho", en: "How I work" },
   background: { pt: "Trajetória", en: "Background" },
   contact: { pt: "Contato", en: "Contact" },
 } satisfies Record<string, L>;
@@ -24,8 +23,8 @@ export const hero = {
     en: "Quality and regulatory specialist who builds AI workflows.",
   },
   lead: {
-    pt: "Farmacêutico com sete anos na cadeia de dispositivos médicos: fabricante, exportador, importador e distribuidor, classes I a IV. Desde 2024 mapeio o processo com quem o executa, escrevo a especificação e entrego a ferramenta com Claude Code, Lovable e Supabase.",
-    en: "Pharmacist with seven years across the medical-device chain: manufacturer, exporter, importer and distributor, Class I to IV. Since 2024 I map a process with the people who run it, write the specification and ship the tool with Claude Code, Lovable and Supabase.",
+    pt: "Farmacêutico com sete anos em dispositivos médicos, da fabricação à distribuição. Mapeio o processo com quem o executa, escrevo a especificação e construo a ferramenta com Claude Code, Lovable e Supabase.",
+    en: "Pharmacist with seven years in medical devices, from manufacturing to distribution. I map a process with the people who run it, write the spec and build the tool with Claude Code, Lovable and Supabase.",
   },
   facts: {
     pt: [
@@ -39,31 +38,6 @@ export const hero = {
       "Portuguese native · English C1 · Spanish reading",
     ],
   } satisfies LList,
-  ctaLinkedin: { pt: "LinkedIn", en: "LinkedIn" },
-  ctaEmail: { pt: "E-mail", en: "Email" },
-  proof: [
-    {
-      value: { pt: "1 semana → 4 h", en: "1 week → 4 h" },
-      label: {
-        pt: "trabalho mensal de qualificação de 75 fornecedores",
-        en: "monthly upkeep for 75 supplier qualifications",
-      },
-    },
-    {
-      value: { pt: "40 min → 2 min", en: "40 min → 2 min" },
-      label: {
-        pt: "por carta de comercialização emitida",
-        en: "per commercial letter issued",
-      },
-    },
-    {
-      value: { pt: "~15 min", en: "~15 min" },
-      label: {
-        pt: "economizados por pedido com a calculadora de cubagem",
-        en: "saved per shipping order with the cubage calculator",
-      },
-    },
-  ],
 };
 
 export type ProjectStatus = "live" | "production" | "paused";
@@ -107,8 +81,8 @@ export const projects: Project[] = [
       en: "Anvisa device data is scattered across portals. Finding who holds a registration, who imports a product and whether it is still valid took hours.",
     },
     built: {
-      pt: "Toda a base da Anvisa numa busca, atualizada diariamente, com enriquecimento de empresas via Firecrawl, login Google e 7 dias de teste. PRD, build em Lovable e Supabase, replays do LogRocket para corrigir o abandono no cadastro.",
-      en: "The full Anvisa database in one search, updated daily, with company enrichment via Firecrawl, Google sign-in and a 7-day trial. PRD, build on Lovable and Supabase, LogRocket replays to fix sign-up drop-off.",
+      pt: "Toda a base de dispositivos da Anvisa numa busca, atualizada diariamente, com dados de empresas via Firecrawl, login Google e 7 dias de teste. Escrevi o PRD, construí em Lovable e Supabase e usei replays do LogRocket para corrigir o abandono no cadastro.",
+      en: "The full Anvisa device database in one search, updated daily, with company data from Firecrawl, Google sign-in and a 7-day trial. I wrote the PRD, built it on Lovable and Supabase and used LogRocket replays to fix sign-up drop-off.",
     },
     outcome: {
       pt: "Horas de pesquisa em portais viram uma busca só. Lançado no LinkedIn; em validação de mercado, ainda sem clientes pagantes.",
@@ -186,8 +160,8 @@ export const projects: Project[] = [
       en: "Validated with a clickable prototype and discovery calls; build started: document control, approvals, CAPA, inspections, audits and PDF procedures.",
     },
     outcome: {
-      pt: "Pausado por motivos pessoais e falta de desenvolvedor; em reconstrução com desenvolvimento assistido por IA, especificação primeiro. Demanda validada, ainda sem clientes pagantes.",
-      en: "Paused for personal reasons and lack of a developer; being rebuilt with AI-assisted development, specification first. Validated demand, no paying customers yet.",
+      pt: "Pausado após a saída do desenvolvedor; em reconstrução com IA, especificação primeiro. Prospects querem comprar quando estiver rodando; ainda sem clientes pagantes.",
+      en: "Paused after losing the developer; being rebuilt spec-first with AI. Prospects asked to buy once it runs; no paying customers yet.",
     },
     stack: ["Lovable", "Supabase", "Claude Code"],
     url: "https://regulamentei.com.br",
@@ -247,43 +221,6 @@ export const sections = {
     stack: { pt: "Stack", en: "Stack" },
     open: { pt: "Abrir", en: "Open" },
   },
-  process: {
-    label: { pt: "Como trabalho", en: "How I work" },
-    title: {
-      pt: "Processo primeiro, especificação depois, código por último.",
-      en: "Process first, specification second, code last.",
-    },
-    steps: [
-      {
-        title: { pt: "Mapear com quem executa", en: "Map it with the people who run it" },
-        body: {
-          pt: "Acompanho a rotina e reúno documentos e exceções.",
-          en: "Shadow the routine and collect documents and exceptions.",
-        },
-      },
-      {
-        title: { pt: "Escrever a especificação", en: "Write the specification" },
-        body: {
-          pt: "PRD, dados, perfis e regras que a IA lê antes do código.",
-          en: "PRD, data, roles and rules the AI reads before coding.",
-        },
-      },
-      {
-        title: { pt: "Construir em grupos verificáveis", en: "Build in verified groups" },
-        body: {
-          pt: "Cada grupo é publicado e testado com dados reais.",
-          en: "Each group ships and is tested on real data.",
-        },
-      },
-      {
-        title: { pt: "Observar o uso real", en: "Watch real usage" },
-        body: {
-          pt: "O uso real decide a próxima iteração.",
-          en: "Real usage decides the next iteration.",
-        },
-      },
-    ],
-  },
   background: {
     label: { pt: "Trajetória", en: "Background" },
     title: {
@@ -300,8 +237,8 @@ export const sections = {
           en: "Quality & Regulatory Affairs Analyst · Responsible Pharmacist",
         },
         body: {
-          pt: "Registro de dispositivos classes I a IV: documentação técnica, arquivos de risco, rotulagem e lista de lacunas antes da ANVISA. Sistema ISO 13485: CAPA, controle de mudanças, auditorias, reclamações e pós-mercado. As ferramentas internas acima.",
-          en: "Registration of Class I to IV devices: technical documentation, risk files, labelling and gap lists before ANVISA. ISO 13485 system: CAPA, change control, audits, complaints and post-market surveillance. The internal tools above.",
+          pt: "Registro de dispositivos classes I a IV, sistema ISO 13485, CAPA, auditorias, reclamações e pós-mercado.",
+          en: "Registration of Class I to IV devices, ISO 13485 quality system, CAPA, audits, complaints and post-market surveillance.",
         },
       },
       {
@@ -404,12 +341,8 @@ export const sections = {
       en: "Looking for roles where domain expertise and hands-on building meet.",
     },
     body: {
-      pt: "Automação e enablement com IA, qualidade e regulatório, melhoria de processos com IA. Em inglês ou português, na Europa ou remoto.",
-      en: "AI automation and enablement, quality and regulatory, process improvement with AI. In English or Portuguese, in Europe or remote.",
-    },
-    location: {
-      pt: "Porto Alegre, Brasil · aberto a relocação na Europa",
-      en: "Porto Alegre, Brazil · open to relocation in Europe",
+      pt: "Automação e enablement com IA, qualidade e regulatório, melhoria de processos. Em inglês ou português, na Europa ou remoto.",
+      en: "AI automation and enablement, quality and regulatory, process improvement. In English or Portuguese, in Europe or remote.",
     },
   },
   footer: {
