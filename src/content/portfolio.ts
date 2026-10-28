@@ -38,6 +38,10 @@ export const hero = {
       "Portuguese native · English C1 · Spanish reading",
     ],
   } satisfies LList,
+  links: {
+    work: { pt: "Ver projetos", en: "See work" },
+    contact: { pt: "Contato", en: "Contact" },
+  },
 };
 
 export type ProjectStatus = "live" | "production" | "paused";
@@ -86,8 +90,8 @@ export const projects: Project[] = [
       en: "The full Anvisa device database in one search, updated daily, with company data from Firecrawl, Google sign-in and a 7-day trial. I wrote the PRD, built it on Lovable and Supabase and used LogRocket replays to fix sign-up drop-off.",
     },
     outcome: {
-      pt: "Horas de pesquisa em portais viram uma busca só. Lançado no LinkedIn; em validação de mercado, ainda sem clientes pagantes.",
-      en: "Hours of portal research become a single search. Launched on LinkedIn; now in market validation, no paying customers yet.",
+      pt: "Uma busca substitui horas de pesquisa em portais. Lancei no LinkedIn; está em validação de mercado, ainda sem clientes pagantes.",
+      en: "One search replaces hours of portal research. I launched it on LinkedIn; it is in market validation, no paying customers yet.",
     },
     stack: ["Lovable", "Supabase", "Firecrawl", "LogRocket", "Claude Code"],
     url: "https://miradasearch.com",
@@ -137,7 +141,7 @@ export const projects: Project[] = [
       en: "Self-service onboarding wizard, automatic detection of expiring documents, renewal requests with upload links, records updated on submission, linked to the CRM.",
     },
     outcome: {
-      pt: "De cerca de uma semana por mês para quatro horas. 50 a 60% dos fornecedores já sobe os próprios documentos.",
+      pt: "De cerca de uma semana por mês para umas quatro horas. 50 a 60% dos fornecedores já sobem os próprios documentos.",
       en: "From roughly a week a month to about four hours. 50 to 60% of suppliers now upload their own documents.",
     },
     stack: ["Lovable", "Supabase", "Automation", "CRM integration"],
@@ -163,8 +167,8 @@ export const projects: Project[] = [
       en: "First I catalogued the dimensions and weight of every product and every standard secondary and tertiary box. On that catalogue, a web app reads the order PDF, shows the extracted items for confirmation and returns which boxes to use, total weight and package count, as text ready for the customer's carrier.",
     },
     outcome: {
-      pt: "Cerca de 15 minutos economizados por pedido (estimativa). Em implantação com quem cobre a expedição.",
-      en: "About 15 minutes saved per order (estimate). Now rolling out to the people who cover shipping.",
+      pt: "Economiza cerca de 15 minutos por pedido (estimativa). Em implantação com quem cobre a expedição.",
+      en: "Saves about 15 minutes per order (estimate). Now rolling out to the people who cover shipping.",
     },
     stack: ["Claude Code", "Lovable", "Supabase"],
     image: "/work/cubage.png",
@@ -185,10 +189,10 @@ export const smallerWork = {
         pt: "Distribuidor, produto e região entram; a carta final sai, sem digitação.",
         en: "Distributor, product and region in; the final letter out, no typing.",
       },
-      metric: { pt: "40 min → 2 min por carta", en: "40 min → 2 min per letter" },
+      metric: { pt: "De 40 min para 2 min por carta", en: "From 40 min to 2 min per letter" },
     },
     {
-      title: { pt: "XML de nota fiscal → CSV", en: "Invoice XML → CSV" },
+      title: { pt: "XML de nota fiscal para CSV", en: "Invoice XML to CSV" },
       body: {
         pt: "Parser em Python que alimenta a importação do sistema de estoque.",
         en: "Python parser feeding the inventory-system import.",
@@ -249,7 +253,7 @@ export const sections = {
         role: { pt: "Fundador", en: "Founder" },
         body: {
           pt: "Licenciamento ANVISA e implantação de sistemas da qualidade para empresas clientes. Origem do Mirada Search AI.",
-          en: "ANVISA licensing and quality-system set-up for client companies. Where Mirada Search AI started.",
+          en: "ANVISA licensing and quality-system set-up for client companies. Mirada Search AI started here.",
         },
       },
       {
@@ -284,7 +288,7 @@ export const sections = {
       ],
       en: [
         "Bachelor's in Pharmacy, UFRGS, 2009 to 2016",
-        "Postgraduate in Regulatory Affairs, Instituto Racine, 2018 a 2019",
+        "Postgraduate in Regulatory Affairs, Instituto Racine, 2018 to 2019",
       ],
     } satisfies LList,
     domainLabel: { pt: "Domínio", en: "Domain" },
@@ -338,8 +342,8 @@ export const sections = {
   contact: {
     label: { pt: "Contato", en: "Contact" },
     title: {
-      pt: "Procuro funções onde domínio e construção se encontram.",
-      en: "Looking for roles where domain expertise and hands-on building meet.",
+      pt: "Procuro funções que juntem conhecimento de domínio e construção de ferramentas.",
+      en: "I'm looking for roles that combine domain expertise and hands-on building.",
     },
     body: {
       pt: "Automação e enablement com IA, backoffice e governança, apoio ao comercial, qualidade e regulatório. Em inglês ou português, presencial com relocação ou remoto.",

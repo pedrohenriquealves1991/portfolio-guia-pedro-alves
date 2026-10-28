@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { hero } from "@/content/portfolio";
 
@@ -34,6 +35,16 @@ const HeroSection = () => {
             ))}
           </ul>
 
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium">
+            <a href="#work" className="inline-flex items-center gap-1 text-brand hover:underline underline-offset-4">
+              {hero.links.work[lang]}
+              <ArrowDown className="h-4 w-4" aria-hidden />
+            </a>
+            <a href="#contact" className="inline-flex items-center gap-1 text-brand hover:underline underline-offset-4">
+              {hero.links.contact[lang]}
+              <ArrowUpRight className="h-4 w-4" aria-hidden />
+            </a>
+          </div>
         </motion.div>
 
       </div>
