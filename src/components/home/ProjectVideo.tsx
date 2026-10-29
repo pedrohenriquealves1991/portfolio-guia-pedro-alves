@@ -7,34 +7,52 @@ interface Props {
   label: string;
   playLabel: string;
   pauseLabel: string;
+  className?: string;
 }
 
-const ProjectVideo = ({ src, poster, label, playLabel, pauseLabel }: Props) => {
+/**
+ * Muted, looping demo video. Nothing is downloaded until the card is near the
+ * viewport; it plays while at least 35% visible and pauses when it scrolls away.
+ */
+const ProjectVideo = ({ src, poster, label, playLabel, pauseLabel, className = "" }: Props) => {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
 
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!reduced) {
-      v.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
-    }
-  }, []);
+    if (reduced) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !userPaused) {
+          v.play().catch(() => {});
+        } else if (!entry.isIntersecting) {
+          v.pause();
+        }
+      },
+      { threshold: 0.35, rootMargin: "200px 0px" },
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, [userPaused]);
 
   const toggle = () => {
     const v = ref.current;
     if (!v) return;
     if (v.paused) {
-      v.play().then(() => setPlaying(true)).catch(() => {});
+      setUserPaused(false);
+      v.play().catch(() => {});
     } else {
+      setUserPaused(true);
       v.pause();
-      setPlaying(false);
     }
   };
 
   return (
-    <div className="relative flex items-center overflow-hidden border-b border-border bg-muted lg:border-b-0 lg:border-r">
+    <div className={`relative ${className}`}>
       <video
         ref={ref}
         src={src}
@@ -42,11 +60,11 @@ const ProjectVideo = ({ src, poster, label, playLabel, pauseLabel }: Props) => {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         aria-label={label}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
-        className="block h-auto w-full"
+        className="block h-full w-full object-contain"
       />
       <button
         type="button"

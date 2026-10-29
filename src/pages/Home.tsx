@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 const Home = () => {
 
   useEffect(() => {
-    document.title = "Pedro Alves · AI & Automation Specialist";
+    document.title = "Pedro Alves · Process Improvement & AI Adoption";
   }, []);
 
   return (

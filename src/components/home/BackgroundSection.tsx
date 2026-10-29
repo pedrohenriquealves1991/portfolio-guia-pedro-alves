@@ -27,7 +27,7 @@ const BackgroundSection = () => {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr]">
           <ol className="space-y-8">
             {t.timeline.map((item) => (
-              <li key={item.org} className="grid grid-cols-1 gap-2 sm:grid-cols-[130px_1fr] sm:gap-6">
+              <li key={item.org} className="grid grid-cols-1 gap-2 sm:grid-cols-[150px_1fr] sm:gap-6">
                 <p className="pt-0.5 font-mono text-xs text-muted-foreground">{item.period[lang]}</p>
                 <div>
                   <h3 className="text-base font-semibold text-foreground">
@@ -41,7 +41,7 @@ const BackgroundSection = () => {
                 </div>
               </li>
             ))}
-            <li className="grid grid-cols-1 gap-2 sm:grid-cols-[130px_1fr] sm:gap-6">
+            <li className="grid grid-cols-1 gap-2 sm:grid-cols-[150px_1fr] sm:gap-6">
               <p className="pt-0.5 font-mono text-xs text-muted-foreground">{t.educationLabel[lang]}</p>
               <ul className="space-y-1 text-[15px] leading-relaxed text-muted-foreground">
                 {t.education[lang].map((e) => (
@@ -52,9 +52,9 @@ const BackgroundSection = () => {
           </ol>
 
           <div className="space-y-7">
-            <TagList label={t.domainLabel[lang]} items={t.domain} />
-            <TagList label={t.toolsLabel[lang]} items={t.tools} />
-            <TagList label={t.methodsLabel[lang]} items={t.methods[lang]} />
+            {t.skills.map((group) => (
+              <TagList key={group.label.en} label={group.label[lang]} items={group.items[lang]} />
+            ))}
           </div>
         </div>
       </div>
