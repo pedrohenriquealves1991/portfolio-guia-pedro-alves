@@ -19,9 +19,8 @@ const ContactSection = () => {
         <h2 className="max-w-3xl text-2xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl">
           {t.title[lang]}
         </h2>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">{t.body[lang]}</p>
 
-        <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
           {items.map((it) => (
             <li key={it.label}>
               <a
@@ -29,13 +28,12 @@ const ContactSection = () => {
                 {...(it.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="flex items-center gap-3 rounded-lg border border-border bg-card px-4 py-3 text-sm font-medium text-foreground hover:border-foreground/40 transition-colors"
               >
-                <it.icon className="h-4 w-4 text-brand" />
-                {it.label}
+                <it.icon className="h-4 w-4 shrink-0 text-brand" />
+                <span className="truncate">{it.label}</span>
               </a>
             </li>
           ))}
         </ul>
-
       </div>
     </section>
   );

@@ -9,7 +9,6 @@ export const GITHUB = "https://github.com/pedrohenriquealves1991";
 
 export const nav = {
   work: { pt: "Projetos", en: "Work" },
-  background: { pt: "Trajetória", en: "Background" },
   contact: { pt: "Contato", en: "Contact" },
 } satisfies Record<string, L>;
 
@@ -19,28 +18,8 @@ export const hero = {
     en: "Pedro Alves",
   },
   subtitle: {
-    pt: "Melhoria de processos e adoção de IA · Operações · Ferramentas internas",
-    en: "Process improvement & AI adoption · Business operations · Internal tools",
-  },
-  lead: {
-    pt: "Encontro a rotina manual, mapeio com quem a executa, meço o tempo que ela custa, construo a automação com IA e low-code e acompanho o uso depois do lançamento. Sete anos em operações, qualidade e governança de um distribuidor de dispositivos médicos.",
-    en: "I find the manual routine, map it with the people who run it, measure the time it costs, build the automation with AI and low-code tools and follow real usage after launch. Seven years in operations, quality and governance at a medical-device distributor.",
-  },
-  facts: {
-    pt: [
-      "Porto Alegre, Brasil",
-      "Aberto a relocação",
-      "Português nativo · Inglês C1 · Espanhol leitura",
-    ],
-    en: [
-      "Porto Alegre, Brazil",
-      "Open to relocation",
-      "Portuguese native · English C1 · Spanish reading",
-    ],
-  } satisfies LList,
-  links: {
-    work: { pt: "Ver projetos", en: "See work" },
-    contact: { pt: "Contato", en: "Contact" },
+    pt: "Portfólio",
+    en: "Portfolio",
   },
 };
 
@@ -176,33 +155,42 @@ export const projects: Project[] = [
 
 export const smallerWork = {
   title: { pt: "Automações menores", en: "Smaller automations" },
+  note: {
+    pt: "Por motivos de privacidade, estas automações não podem ser mostradas aqui.",
+    en: "For privacy reasons, these automations cannot be shown here.",
+  },
   items: [
     {
       title: { pt: "Gerador de cartas de comercialização", en: "Commercial letter generator" },
       body: {
-        pt: "Distribuidor, produto e região escolhidos por clique; a carta final sai pronta.",
-        en: "Distributor, product and region chosen by click; the final letter comes out ready.",
+        pt: "As cartas eram feitas uma a uma no Word e guardadas em pastas, sem histórico nem base de quais produtos cada cliente podia vender em cada região do Brasil. A ferramenta, no backoffice do site, monta a carta a partir do CRM de clientes criado na plataforma de qualificação e do catálogo de produtos da ferramenta de pregões: escolhe-se a região e o PDF sai pronto para assinatura digital. Agora existe um histórico que mapeia a distribuição das cartas, e uma mesma carta pode ser reemitida com validade nova.",
+        en: "Letters were written one by one in Word and filed in folders, with no history and no record of which products each customer could sell in each region of Brazil. The tool, in the website's back office, builds the letter from the customer CRM created for the qualification platform and the product catalogue built for the tender tool: pick the region and the PDF comes out ready for digital signature. There is now a history that maps where the letters went, and a letter can be reissued with a new validity date.",
       },
-      metric: { pt: "De 40 para 2 minutos por carta, cerca de 10 por mês", en: "From 40 to 2 minutes per letter, about 10 a month" },
+      metric: { pt: "De 40 para 2 minutos por carta", en: "From 40 to 2 minutes per letter" },
     },
     {
-      title: { pt: "Sistema da qualidade na nuvem", en: "Quality system in the cloud" },
+      title: { pt: "XML de nota fiscal para CSV", en: "Invoice XML to CSV" },
       body: {
-        pt: "SGQ ISO 13485 com controle de documentos e aprovação automatizada; arquivo físico migrado para o SharePoint.",
-        en: "ISO 13485 QMS with document control and approval automation; physical archive moved to SharePoint.",
+        pt: "O ERP da empresa não conseguia internalizar produtos com lote e validade a partir do XML emitido pelo despachante. Mapeei os campos e criei no backoffice uma automação que gera um CSV no formato do ERP e internaliza o pedido com todos os dados necessários.",
+        en: "The company's ERP could not import products with batch and expiry date from the XML issued by the customs broker. I mapped the fields and built a back-office automation that generates a CSV in the ERP's format and imports the order with every field it needs.",
       },
-      metric: { pt: "Acesso remoto para toda a empresa", en: "Remote access for the whole company" },
+      metric: { pt: "De até 4 horas para 2 minutos por nota fiscal", en: "From up to 4 hours to 2 minutes per invoice" },
     },
     {
-      title: { pt: "Página de documentos e catálogo", en: "Catalogue and documents page" },
+      title: { pt: "Captação de leads pelo catálogo comercial", en: "Lead capture through the commercial catalogue" },
       body: {
-        pt: "Captura o contato antes do download e substituiu o Linktree.",
-        en: "Captures contact data before download and replaced Linktree.",
+        pt: "Construí o site da empresa com os produtos listados e SEO otimizado, para que os clientes nos encontrem organicamente. Os catálogos comerciais completos, com desenhos, só são baixados depois de informar nome e e-mail. Com a lista de quem baixou os arquivos, ajudei o comercial a converter vendas.",
+        en: "I built the company website with the products listed and SEO in place, so customers find us organically. The full commercial catalogues, with drawings, are downloaded only after leaving a name and email. With the list of people who downloaded the files, I helped the sales team convert orders.",
       },
-      metric: {
-        pt: "Leads orgânicos que o comercial converteu em vendas",
-        en: "Organic leads that sales turned into orders",
+      metric: { pt: "Leads orgânicos convertidos em vendas", en: "Organic leads converted into orders" },
+    },
+    {
+      title: { pt: "Página de documentos", en: "Documents page" },
+      body: {
+        pt: "Todos os clientes precisam dos documentos legais da empresa. Antes eu anexava todos os documentos a cada e-mail. Agora envio um link permanente, onde todos ficam disponíveis para download.",
+        en: "Every customer needs the company's legal documents. I used to attach all of them to every email. Now I send one permanent link where all of them are available for download.",
       },
+      metric: { pt: "De cerca de 8 horas para no máximo 30 minutos por mês", en: "From about 8 hours to at most 30 minutes a month" },
     },
   ],
 };
@@ -219,121 +207,11 @@ export const sections = {
     outcome: { pt: "Resultado", en: "Outcome" },
     open: { pt: "Abrir", en: "Open" },
   },
-  background: {
-    label: { pt: "Trajetória", en: "Background" },
-    title: {
-      pt: "Sete anos em operações, qualidade e governança.",
-      en: "Seven years in operations, quality and governance.",
-    },
-    timeline: [
-      {
-        period: { pt: "nov 2021 a hoje", en: "Nov 2021 to present" },
-        org: "Angiolux",
-        orgNote: { pt: "importador e distribuidor de dispositivos médicos", en: "medical-device importer and distributor" },
-        role: {
-          pt: "Analista de Processos e Qualidade (Qualidade e Regulatório)",
-          en: "Process & Quality Analyst (Quality and Regulatory Affairs)",
-        },
-        body: {
-          pt: "Rotinas de fornecedores, licitações, cubagem e documentos comerciais automatizadas. Sistema da qualidade ISO 13485 refeito na nuvem. Auditorias, CAPA e controle de mudanças. Área de estoque ampliada quatro vezes.",
-          en: "Supplier, tender, cubage and commercial-document routines automated. ISO 13485 quality system rebuilt in the cloud. Audits, CAPA and change control. Stock area expanded fourfold.",
-        },
-      },
-      {
-        period: { pt: "mar 2024 a hoje", en: "Mar 2024 to present" },
-        org: "Regulamentei",
-        orgNote: { pt: "produtos de automação e IA", en: "process automation and AI products" },
-        role: { pt: "Fundador", en: "Founder" },
-        body: {
-          pt: "Mirada Search AI, busca unificada de dados públicos. Regulamentei SGQ, sistema da qualidade digital para distribuidores, com conversas de venda e retorno de prospects.",
-          en: "Mirada Search AI, a unified search over public data. Regulamentei SGQ, a digital quality system for distributors, with sales calls and prospect feedback.",
-        },
-      },
-      {
-        period: { pt: "2018 a 2021", en: "2018 to 2021" },
-        org: "Fleury · Kley Hertz · Panvel",
-        orgNote: { pt: "diagnóstico, farmacêutica e varejo", en: "diagnostics, pharma and pharmacy retail" },
-        role: { pt: "Funções de regulatório e qualidade", en: "Regulatory and quality roles" },
-        body: {
-          pt: "Regulatório em diagnóstico e indústria farmacêutica, depois farmácia.",
-          en: "Regulatory work in diagnostics and pharma, then community pharmacy.",
-        },
-      },
-      {
-        period: { pt: "dez 2016 a nov 2018", en: "Dec 2016 to Nov 2018" },
-        org: "Vision Hitech",
-        orgNote: { pt: "fabricante", en: "manufacturer" },
-        role: {
-          pt: "Qualidade e Processos",
-          en: "Quality & Process Officer",
-        },
-        body: {
-          pt: "Certificação ISO 13485 com equipe de quatro pessoas: revisões de projeto, verificação na linha, documentação e transferência para produção. Registros para exportação em seis países.",
-          en: "ISO 13485 certification with a quality team of four: design reviews, verification on the line, documentation and design transfer. Export registrations in six countries.",
-        },
-      },
-    ],
-    educationLabel: { pt: "Formação", en: "Education" },
-    education: {
-      pt: [
-        "Farmácia, UFRGS, 2009 a 2016",
-        "Pós-graduação em Assuntos Regulatórios e Registro de Produtos, Instituto Racine, 2018 a 2019",
-      ],
-      en: [
-        "Bachelor's in Pharmacy, UFRGS, 2009 to 2016",
-        "Postgraduate in Regulatory Affairs and Product Registration, Instituto Racine, 2018 to 2019",
-      ],
-    } satisfies LList,
-    skills: [
-      {
-        label: { pt: "Mudança e adoção", en: "Change and adoption" },
-        items: {
-          pt: [
-            "Mapeamento de processos com os donos do negócio",
-            "Medida de sucesso: tempo poupado por tarefa",
-            "Implantação e retorno dos usuários",
-            "Revisão de usabilidade de produtos no ar",
-          ],
-          en: [
-            "Process mapping with business owners",
-            "Success measure: time saved per task",
-            "Rollout and user feedback",
-            "Usability review of live products",
-          ],
-        } satisfies LList,
-      },
-      {
-        label: { pt: "IA e low-code", en: "AI and low-code" },
-        items: {
-          pt: ["Claude", "Claude Code", "Codex", "Lovable", "v0", "ChatGPT", "Especificação e PRD"],
-          en: ["Claude", "Claude Code", "Codex", "Lovable", "v0", "ChatGPT", "Spec and PRD writing"],
-        } satisfies LList,
-      },
-      {
-        label: { pt: "Build e integração", en: "Build and integrate" },
-        items: {
-          pt: ["Supabase (edge functions, auth, storage)", "APIs REST", "Webhooks", "Firecrawl", "Scripts em Python", "SharePoint e Microsoft 365"],
-          en: ["Supabase (edge functions, auth, storage)", "REST APIs", "Webhooks", "Firecrawl", "Python scripts", "SharePoint and Microsoft 365"],
-        } satisfies LList,
-      },
-      {
-        label: { pt: "Análise", en: "Analytics" },
-        items: {
-          pt: ["LogRocket", "Google Trends"],
-          en: ["LogRocket", "Google Trends"],
-        } satisfies LList,
-      },
-    ],
-  },
   contact: {
     label: { pt: "Contato", en: "Contact" },
     title: {
-      pt: "Procuro funções entre o negócio e quem constrói.",
-      en: "I'm looking for roles between the business and the people who build.",
-    },
-    body: {
-      pt: "Melhoria de processos, adoção de IA, operações e ferramentas internas. Em inglês ou português, presencial com relocação ou remoto.",
-      en: "Process improvement, AI adoption, business operations and internal tools. In English or Portuguese, on site with relocation or remote.",
+      pt: "Se tiver interesse, entre em contato!",
+      en: "If you are interested, please contact!",
     },
   },
   footer: {

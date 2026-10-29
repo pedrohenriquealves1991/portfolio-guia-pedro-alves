@@ -64,7 +64,7 @@ const ProjectVideo = ({ src, poster, label, playLabel, pauseLabel, className = "
         aria-label={label}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
-        className="block h-full w-full object-contain"
+        className="block h-auto w-full"
       />
       <button
         type="button"
